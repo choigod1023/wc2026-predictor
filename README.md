@@ -14,6 +14,9 @@
     src/elo.py                 Elo 레이팅 엔진
     src/prob_model.py          확률 변환 + walk-forward 검증
     src/predict.py             72경기 예측 + 우승 시뮬레이션
+    src/sim.py                 토너먼트 몬테카를로 코어 (단계별 진출 확률 포함)
+    src/models.py              확률 모델 레지스트리 (Elo-로지스틱·+|diff|·Davidson·기준선)
+    src/compare_models.py      멀티모델 walk-forward Brier 리더보드 + 모델별 우승 시뮬
     src/evaluate.py            대회 후 모델 vs 시장 Brier 판정
     data/closing_odds.csv      ★ 매 경기 킥오프 직전 배당을 여기에 기록 (소수 배당)
     docs/MATH.md               ★ 모든 수식 명세 (Elo·확률변환·Brier·몬테카를로)
