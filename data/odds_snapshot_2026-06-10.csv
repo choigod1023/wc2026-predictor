@@ -1,0 +1,16 @@
+team,fanduel_odds,draftkings_odds,implied_fd_pct,implied_dk_pct,polymarket_pct,kalshi_pct
+Spain,470.0,450.0,17.54,18.18,16.0,16.5
+France,480.0,475.0,17.24,17.39,16.2,
+England,700.0,700.0,12.5,12.5,10.9,
+Portugal,,850.0,,10.53,,
+Brazil,850.0,900.0,10.53,10.0,,
+Argentina,1000.0,900.0,9.09,10.0,,
+Germany,,1400.0,,6.67,,
+Netherlands,,2000.0,,4.76,,
+Norway,,3500.0,,2.78,,
+Belgium,,4000.0,,2.44,,
+Colombia,,4000.0,,2.44,,
+Mexico,5500.0,,1.79,,,
+United States,6000.0,6000.0,1.64,1.64,,
+Uruguay,,6500.0,,1.52,,
+Canada,22500.0,,0.44,,,

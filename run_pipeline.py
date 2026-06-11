@@ -1,0 +1,27 @@
+"""
+run_pipeline.py — 전체 파이프라인 실행
+  python run_pipeline.py            # 현재 데이터로 재계산
+  python run_pipeline.py --update   # 최신 경기 결과 다운로드 후 재계산
+대회 기간 중에는 매일 --update 로 실행하면 직전 경기까지 Elo에 반영된다.
+"""
+import os
+import sys
+import subprocess
+import urllib.request
+
+ROOT = os.path.dirname(os.path.abspath(__file__))
+os.chdir(ROOT)
+DATA_URL = 'https://raw.githubusercontent.com/martj42/international_results/master/results.csv'
+
+if '--update' in sys.argv:
+    print('[1/4] 데이터 갱신:', DATA_URL)
+    urllib.request.urlretrieve(DATA_URL, 'data/results.csv')
+else:
+    print('[1/4] 데이터 갱신 생략 (--update 로 활성화)')
+
+for i, script in enumerate(['src/elo.py', 'src/prob_model.py', 'src/predict.py'], start=2):
+    print(f'[{i}/4] {script}')
+    r = subprocess.run([sys.executable, script])
+    if r.returncode != 0:
+        sys.exit(f'{script} 실패')
+print('완료. 산출물: data/group_stage_predictions.csv, data/championship_probs.csv')

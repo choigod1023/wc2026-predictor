@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# 모델 산출물 중 재생성 가능한 것은 추적하되, 대용량 원본은 제외하지 않음
+# (data/results.csv 등은 의도적으로 추적: 재현성 원칙)
