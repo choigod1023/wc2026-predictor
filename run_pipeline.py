@@ -13,17 +13,21 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 os.chdir(ROOT)
 DATA_URL = 'https://raw.githubusercontent.com/martj42/international_results/master/results.csv'
 
+scripts = ['src/elo.py', 'src/prob_model.py', 'src/predict.py',
+           'src/compare_models.py', 'src/score_model.py']
+n = len(scripts) + 1
+
 if '--update' in sys.argv:
-    print('[1/5] 데이터 갱신:', DATA_URL)
+    print(f'[1/{n}] 데이터 갱신:', DATA_URL)
     urllib.request.urlretrieve(DATA_URL, 'data/results.csv')
 else:
-    print('[1/5] 데이터 갱신 생략 (--update 로 활성화)')
+    print(f'[1/{n}] 데이터 갱신 생략 (--update 로 활성화)')
 
-scripts = ['src/elo.py', 'src/prob_model.py', 'src/predict.py', 'src/compare_models.py']
 for i, script in enumerate(scripts, start=2):
-    print(f'[{i}/5] {script}')
+    print(f'[{i}/{n}] {script}')
     r = subprocess.run([sys.executable, script])
     if r.returncode != 0:
         sys.exit(f'{script} 실패')
 print('완료. 산출물: group_stage_predictions.csv, championship_probs.csv, '
-      'model_leaderboard.json, champion_by_model.json, stage_probs.json')
+      'model_leaderboard.json, champion_by_model.json, stage_probs.json, '
+      'score_predictions.json, score_leaderboard.json')

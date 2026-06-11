@@ -138,6 +138,66 @@ P(H)=g/D,  P(D)=ν·√g/D,  P(A)=1/D
 M3 0.5065. 세 모델 차이가 미미하다는 것 자체가 "Elo 차이 한 피처에 정보
 대부분이 압축돼 있다"는 증거다.
 
+## 2.5 스코어 모델 (언더/오버 · 핸디캡의 토대)
+
+승/무/패만으로는 총득점(언오버)·득점차(핸디캡)를 줄 수 없어 '몇 대 몇'의
+분포를 모델링한다. `score_model.py`.
+
+### 양 팀 기대득점 (Poisson GLM)
+
+경기 전 Elo 차이 $d=\Delta_{\text{pre}}$ 로 홈/원정 기대득점 λ를 회귀:
+
+$$\log \lambda_{\text{home}} = a_0 + a_1\,\tfrac{d}{100}, \qquad
+\log \lambda_{\text{away}} = b_0 + b_1\,\tfrac{d}{100}$$
+
+```
+λ_home = exp(a0 + a1·d/100)
+λ_away = exp(b0 + b1·d/100)
+```
+
+### M1 독립 포아송
+
+홈/원정 득점이 독립인 포아송:
+
+$$P(X=x, Y=y) = \frac{\lambda_h^{x} e^{-\lambda_h}}{x!}\cdot
+\frac{\lambda_a^{y} e^{-\lambda_a}}{y!}$$
+
+### M2 Dixon-Coles
+
+저점수(0:0,1:0,0:1,1:1)에서 실측이 독립가정과 어긋나는 것을 보정항 $\tau$ 로 교정:
+
+$$P(x,y) = \tau_{\lambda_h,\lambda_a}(x,y)\,\cdot
+\frac{\lambda_h^{x}e^{-\lambda_h}}{x!}\cdot\frac{\lambda_a^{y}e^{-\lambda_a}}{y!}$$
+
+$$
+\tau =
+\begin{cases}
+1-\lambda_h\lambda_a\rho & (0,0)\\
+1+\lambda_h\rho & (0,1)\\
+1+\lambda_a\rho & (1,0)\\
+1-\rho & (1,1)\\
+1 & \text{그 외}
+\end{cases}
+$$
+
+$\rho$ 는 학습기간 로그우도 최대화로 적합(검증값 $\rho\approx-0.04$).
+
+### 시장 도출 (스코어 격자 → 모든 라인)
+
+0–9 격자 확률 $P(x,y)$ 에서:
+
+- **언더/오버 라인 $L$**: $P(\text{총득점}>L)=\sum_{x+y>L}P(x,y)$
+- **핸디캡 라인 $\ell$** (홈 관점): $P(\text{홈}+\ell>0)=\sum_{(x-y)+\ell>0}P(x,y)$
+- **적정 핸디캡**: 기대 득점차 $\lambda_h-\lambda_a$ 를 0.5 단위로 반올림
+
+### 검증 (walk-forward)
+
+- **스코어 로그우도**: 실제 스코어라인에 부여한 $\log P(x,y)$ 평균(높을수록↑)
+- **O/U 2.5 Brier**: 총득점>2.5 이항 예측의 Brier(낮을수록↓)
+
+결과: DC 로그우도 −2.887 ≈ 독립포아송 −2.888 > 기준선(평균득점) −3.255.
+DC를 72경기 예측의 대표 모델로 사용.
+
 ## 3. 평가 지표 — 멀티클래스 Brier Score
 
 예측 확률 벡터 $\mathbf{p} = (p_H, p_D, p_A)$ 와 실제 결과 원-핫
