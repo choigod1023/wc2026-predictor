@@ -185,6 +185,16 @@ json.dump(leaderboard, open('data/score_leaderboard.json', 'w'),
 # ── 72경기 예측 (전체기간 재학습한 대표=Dixon-Coles) ───────────
 PRIMARY = DixonColes().fit(df['elo_diff_pre'].values,
                            df['home_score'].values, df['away_score'].values)
+
+# 시뮬레이션(sim.py)이 임의 대진의 기대득점을 계산할 수 있도록 계수 export.
+#   log λ_home = a0 + a1·(d/100) ,  log λ_away = b0 + b1·(d/100)  (d=elo_diff_pre)
+params = {
+    'a0': float(np.ravel(PRIMARY.mh.intercept_)[0]), 'a1': float(np.ravel(PRIMARY.mh.coef_)[0]),
+    'b0': float(np.ravel(PRIMARY.ma.intercept_)[0]), 'b1': float(np.ravel(PRIMARY.ma.coef_)[0]),
+    'rho': float(PRIMARY.rho), 'scale': 100.0,
+}
+json.dump(params, open('data/score_model_params.json', 'w'), indent=2)
+
 ratings = pd.read_csv('data/elo_final.csv', index_col=0)['elo'].to_dict()
 fixtures = pd.read_csv('data/results.csv')
 wc = fixtures[(fixtures['date'] >= '2026-06-11') &

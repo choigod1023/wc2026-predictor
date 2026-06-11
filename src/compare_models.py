@@ -84,7 +84,6 @@ diffs = np.array([ratings[r.home_team] + (0 if r.neutral else HOME_ADV)
                   - ratings[r.away_team] for r in wc_sorted])
 
 champ_by_model = []
-stage_probs_main = None
 print('\n=== 모델별 우승 확률 Top 8 ===')
 for cls in SIM_MODELS:
     m = cls().fit(Xfull, yfull)
@@ -100,17 +99,9 @@ for cls in SIM_MODELS:
     print(f'\n[{m.name}]')
     for t, v in champ_sorted[:8]:
         print(f'  {t:18s} {v:6.1%}')
-    if cls is SIM_MODELS[0]:
-        # 대표 모델의 단계별 도달 확률을 저장
-        rows = []
-        for t, st in out['stages'].items():
-            rows.append({'team': t, **{k: round(v, 4) for k, v in st.items()},
-                         'champion': round(out['champion'][t], 4)})
-        rows.sort(key=lambda r: r['champion'], reverse=True)
-        stage_probs_main = rows
 
+# 주: 대표 단계별 확률(stage_probs.json)은 predict.py 의 스코어 기반 시뮬이 생성한다.
+# 여기서는 W/D/A 모델들의 우승 확률 비교(champion_by_model)만 출력.
 json.dump(champ_by_model, open('data/champion_by_model.json', 'w'),
           ensure_ascii=False, indent=2)
-json.dump(stage_probs_main, open('data/stage_probs.json', 'w'),
-          ensure_ascii=False, indent=2)
-print('\n저장: model_leaderboard.json, champion_by_model.json, stage_probs.json')
+print('\n저장: model_leaderboard.json, champion_by_model.json')

@@ -1,39 +1,49 @@
 team,P_champion,P_final
-Spain,0.25375,0.36005
-Argentina,0.1995,0.3055
-France,0.1069,0.1928
-England,0.0648,0.13585
-Brazil,0.0549,0.12025
-Colombia,0.05,0.11035
-Ecuador,0.0325,0.0812
-Portugal,0.03035,0.07545
-Netherlands,0.0272,0.0671
-Germany,0.02425,0.06295
-Japan,0.0194,0.0508
-Mexico,0.01665,0.04825
-Morocco,0.0157,0.04335
-Belgium,0.01295,0.03945
-Croatia,0.0129,0.0367
-Uruguay,0.0125,0.0401
-Switzerland,0.01205,0.03665
-Turkey,0.0108,0.0319
-Norway,0.0096,0.0287
-Senegal,0.00515,0.0156
-Paraguay,0.00495,0.0164
-Canada,0.0048,0.01695
-Iran,0.0032,0.0159
-Austria,0.0031,0.01195
-Australia,0.00275,0.0098
-South Korea,0.0027,0.0107
-Algeria,0.00135,0.00625
-Panama,0.00115,0.0063
-Uzbekistan,0.0007,0.00255
-United States,0.0007,0.00425
-Ivory Coast,0.0006,0.00335
-Scotland,0.0005,0.0038
-Czech Republic,0.0004,0.00255
-Egypt,0.0004,0.0023
-DR Congo,0.0003,0.0008
-Jordan,0.0003,0.0011
+Spain,0.2571,0.3695
+Argentina,0.2026,0.3135
+France,0.10515,0.1936
+England,0.0688,0.13875
+Brazil,0.05715,0.1194
+Colombia,0.04785,0.10695
+Ecuador,0.03305,0.07565
+Netherlands,0.028,0.06895
+Portugal,0.02645,0.06995
+Germany,0.0232,0.0625
+Japan,0.01745,0.05245
+Mexico,0.0165,0.0487
+Morocco,0.01575,0.04305
+Uruguay,0.0145,0.0423
+Belgium,0.0143,0.04455
+Switzerland,0.01175,0.0358
+Croatia,0.0108,0.03405
+Turkey,0.0105,0.0296
+Norway,0.0094,0.0257
+Senegal,0.0043,0.0162
+Iran,0.00415,0.0155
+Paraguay,0.00385,0.01415
+Canada,0.0037,0.0156
+South Korea,0.00275,0.01025
+Australia,0.0026,0.01145
+Austria,0.0024,0.0101
+Algeria,0.00145,0.00645
+Panama,0.0009,0.00465
+United States,0.00085,0.00425
+Ivory Coast,0.00055,0.00255
+Uzbekistan,0.0005,0.00265
+Scotland,0.00045,0.0033
+Czech Republic,0.0004,0.0018
+Egypt,0.00035,0.00225
 Sweden,0.00015,0.0009
-Tunisia,0.0001,0.00035
+DR Congo,0.00015,0.0008
+Tunisia,0.0001,0.00045
+Jordan,5e-05,0.00065
+Iraq,5e-05,0.00025
+Haiti,0.0,0.0001
+Saudi Arabia,0.0,0.00025
+Bosnia and Herzegovina,0.0,5e-05
+New Zealand,0.0,0.00035
+Cape Verde,0.0,5e-05
+Qatar,0.0,0.0
+South Africa,0.0,5e-05
+Ghana,0.0,0.0
+Curaçao,0.0,0.0

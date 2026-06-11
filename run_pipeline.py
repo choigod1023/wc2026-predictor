@@ -13,8 +13,8 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 os.chdir(ROOT)
 DATA_URL = 'https://raw.githubusercontent.com/martj42/international_results/master/results.csv'
 
-scripts = ['src/elo.py', 'src/prob_model.py', 'src/predict.py',
-           'src/compare_models.py', 'src/score_model.py']
+scripts = ['src/elo.py', 'src/prob_model.py', 'src/score_model.py',
+           'src/predict.py', 'src/compare_models.py']
 n = len(scripts) + 1
 
 if '--update' in sys.argv:
@@ -28,6 +28,12 @@ for i, script in enumerate(scripts, start=2):
     r = subprocess.run([sys.executable, script])
     if r.returncode != 0:
         sys.exit(f'{script} 실패')
+
+# --update 시 마감배당도 함께 스냅샷(비파괴: 빈 경기만). 네트워크 실패는 비치명.
+if '--update' in sys.argv:
+    print('[+] src/capture_odds.py (named 마감배당 적재)')
+    subprocess.run([sys.executable, 'src/capture_odds.py'])
+
 print('완료. 산출물: group_stage_predictions.csv, championship_probs.csv, '
       'model_leaderboard.json, champion_by_model.json, stage_probs.json, '
-      'score_predictions.json, score_leaderboard.json')
+      'score_predictions.json, score_leaderboard.json, closing_odds.csv')

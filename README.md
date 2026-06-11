@@ -18,6 +18,7 @@
     src/models.py              확률 모델 레지스트리 (Elo-로지스틱·+|diff|·Davidson·기준선)
     src/compare_models.py      멀티모델 walk-forward Brier 리더보드 + 모델별 우승 시뮬
     src/score_model.py         스코어 예측(포아송·Dixon-Coles) → 언오버·핸디캡 + 근거
+    src/capture_odds.py        named API 마감배당 → closing_odds.csv 자동 적재(멱등)
     src/evaluate.py            대회 후 모델 vs 시장 Brier 판정
     data/closing_odds.csv      ★ 매 경기 킥오프 직전 배당을 여기에 기록 (소수 배당)
     docs/MATH.md               ★ 모든 수식 명세 (Elo·확률변환·Brier·몬테카를로)
