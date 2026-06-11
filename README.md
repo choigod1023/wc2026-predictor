@@ -19,7 +19,17 @@
     src/compare_models.py      멀티모델 walk-forward Brier 리더보드 + 모델별 우승 시뮬
     src/score_model.py         스코어 예측(포아송·Dixon-Coles) → 언오버·핸디캡 + 근거
     src/capture_odds.py        named API 마감배당 → closing_odds.csv 자동 적재(멱등)
+    src/export_web.py          파이프라인 산출물 → 웹(wc2026-web/data) JSON export
     src/evaluate.py            대회 후 모델 vs 시장 Brier 판정
+
+## 자동 갱신 (서버에서 주기 실행)
+모델은 요청마다가 아니라 **스케줄로** 돈다(입력=경기결과는 경기 끝날 때만 바뀜, GPU 불필요).
+- 이 레포 `.github/workflows/refresh-data.yml`: 6시간마다 `run_pipeline.py --update`
+  (결과·Elo·예측 갱신 + 마감배당 누적) → 변경분 자동 커밋.
+- 웹 레포 `refresh-predictions.yml`: 6시간마다 이 레포를 clone해 파이프라인을 돌리고
+  `export_web.py` 로 예측 JSON을 웹에 커밋 → Vercel 자동 재배포.
+- 채점용 고정본 `group_stage_predictions.csv` 는 가드로 사후 수정 차단(재생성은 `FORCE_PREDICTIONS=1`).
+- 수동 실행: GitHub Actions 탭의 "Run workflow" 버튼.
     data/closing_odds.csv      ★ 매 경기 킥오프 직전 배당을 여기에 기록 (소수 배당)
     docs/MATH.md               ★ 모든 수식 명세 (Elo·확률변환·Brier·몬테카를로)
     docs/                      알고리즘 해설 문서

@@ -53,7 +53,13 @@ for r in wc.sort_values('date').itertuples():
                  'P_home': round(p[iH], 4), 'P_draw': round(p[iD], 4),
                  'P_away': round(p[iA], 4)})
 pred = pd.DataFrame(rows)
-pred.to_csv('data/group_stage_predictions.csv', index=False)
+# 채점 기준이 되는 '개막 전 고정본'은 한 번 만들어지면 사후 수정 금지(CLAUDE.md 원칙).
+# 이미 있으면 덮어쓰지 않는다. 의도적 재생성은 FORCE_PREDICTIONS=1 로.
+_FROZEN = 'data/group_stage_predictions.csv'
+if _os.path.exists(_FROZEN) and _os.environ.get('FORCE_PREDICTIONS') != '1':
+    print(f'(고정본 {_FROZEN} 유지 — 사후 수정 금지. 재생성은 FORCE_PREDICTIONS=1)')
+else:
+    pred.to_csv(_FROZEN, index=False)
 
 # ── 3. 스코어 기반 몬테카를로 시뮬레이션 ───────────────────────
 # 스코어라인을 추첨해 2026 룰(승자승→골득실)로 조 순위, 녹아웃은 연장·승부차기.
