@@ -2,37 +2,37 @@
   {
     "name": "Elo-로지스틱 +|diff|",
     "short": "elo_logit_abs",
-    "brier": 0.5062,
-    "logloss": 0.8603,
-    "accuracy": 0.6005,
+    "brier": 0.5064,
+    "logloss": 0.8606,
+    "accuracy": 0.6003,
     "best": true
   },
   {
     "name": "Elo-로지스틱 (기준)",
     "short": "elo_logit",
-    "brier": 0.5064,
-    "logloss": 0.8608,
-    "accuracy": 0.6005
+    "brier": 0.5066,
+    "logloss": 0.8613,
+    "accuracy": 0.6003
   },
   {
     "name": "Davidson 무승부모델",
     "short": "davidson",
-    "brier": 0.5072,
-    "logloss": 0.8656,
-    "accuracy": 0.6048
+    "brier": 0.5075,
+    "logloss": 0.866,
+    "accuracy": 0.6046
   },
   {
     "name": "기준선·비율(base-rate)",
     "short": "base_rate",
-    "brier": 0.6384,
-    "logloss": 1.0573,
-    "accuracy": 0.467
+    "brier": 0.6382,
+    "logloss": 1.057,
+    "accuracy": 0.4676
   },
   {
     "name": "기준선·균등(1/3)",
     "short": "uniform",
     "brier": 0.6667,
     "logloss": 1.0986,
-    "accuracy": 0.467
+    "accuracy": 0.4676
   }
 ]
