@@ -57,6 +57,17 @@ def main():
     for name in COPY:
         shutil.copyfile(_os.path.join('data', name), _os.path.join(out, name))
 
+    # closing_odds.csv → closing_odds.json (기록된 행만; 종료 경기 배당 적중 표시용)
+    with open('data/closing_odds.csv', encoding='utf-8') as f:
+        co = []
+        for r in csv.DictReader(f):
+            if r.get('odds_H') and r.get('odds_D') and r.get('odds_A'):
+                co.append({'date': r['date'], 'home': r['home'], 'away': r['away'],
+                           'oH': float(r['odds_H']), 'oD': float(r['odds_D']),
+                           'oA': float(r['odds_A'])})
+    json.dump(co, open(_os.path.join(out, 'closing_odds.json'), 'w'),
+              ensure_ascii=False, indent=0)
+
     print(f'export 완료 → {out}')
     print('  championship.json, elo.json, ' + ', '.join(COPY))
     print('  (고정본 matches.json·modelVsMarket.json 은 의도적으로 미갱신)')
