@@ -22,7 +22,7 @@ DEFAULT_OUT = _os.path.join('..', 'wc2026-web', 'data')
 # 그대로 복사할 JSON (predictor/data → web/data)
 COPY = [
     'stage_probs.json', 'score_predictions.json', 'score_leaderboard.json',
-    'model_leaderboard.json', 'champion_by_model.json',
+    'model_leaderboard.json', 'champion_by_model.json', 'champion_history.json',
 ]
 
 

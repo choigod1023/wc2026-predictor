@@ -81,6 +81,18 @@ for t, st in out['stages'].items():
 stage_rows.sort(key=lambda r: r['champion'], reverse=True)
 json.dump(stage_rows, open('data/stage_probs.json', 'w'), ensure_ascii=False, indent=2)
 
+# 우승 확률 시계열 누적 (대회 진행에 따른 변화 추세 그래프용)
+import datetime as _dt
+HIST = 'data/champion_history.json'
+hist = json.load(open(HIST)) if _os.path.exists(HIST) else []
+snap = {t: round(float(out['champion'][t]), 4)
+        for t in out['champion'] if out['champion'][t] >= 0.003}
+# 직전 스냅샷과 동일하면(결과 변화 없음) 추가하지 않음
+if not hist or hist[-1].get('p') != snap:
+    hist.append({'t': _dt.datetime.utcnow().strftime('%Y-%m-%dT%H:%MZ'), 'p': snap})
+hist = hist[-400:]
+json.dump(hist, open(HIST, 'w'), ensure_ascii=False)
+
 print('=== 우승 확률 Top 12 (스코어 기반 시뮬) ===')
 print(res.head(12).to_string(index=False))
 print('\n저장: championship_probs.csv, stage_probs.json')
