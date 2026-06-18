@@ -200,16 +200,21 @@ def _rank_group(teams, games, ratings):
     return order, pts, gd, gf
 
 
-def simulate_scores(fixtures, groups, ratings, params, n_sim=20000, seed=42):
+def simulate_scores(fixtures, groups, ratings, params, n_sim=20000, seed=42,
+                    played=None):
     """
     fixtures : [(home, away, neutral), ...] 조별리그 72경기 (일정·중립여부)
     groups   : list[list[str]]
     ratings  : dict team -> elo
     params   : score_model 계수 dict
+    played   : {(home, away): (home_score, away_score)} 이미 끝난 조별 경기.
+               주어지면 그 경기는 실제 스코어로 '고정'하고 남은 경기만 추첨한다
+               → 대회가 진행될수록 예측이 실제 결과를 반영해 변동.
     스코어라인을 추첨해 2026 룰로 조 순위·녹아웃을 진행. 반환 형식은 simulate 와 동일.
     """
     rng = np.random.default_rng(seed)
     lam = make_lambda(params)
+    played = played or {}
 
     def ko(a, b):
         """녹아웃 한 경기: 스코어 추첨 → 연장 → 승부차기. 승자 반환."""
@@ -244,8 +249,12 @@ def simulate_scores(fixtures, groups, ratings, params, n_sim=20000, seed=42):
         for gi, g in enumerate(groups):
             games = []
             for h, a, neu in grp_fixtures[gi]:
-                lh, la = lam(ratings[h], ratings[a], neu)
-                games.append((h, a, int(rng.poisson(lh)), int(rng.poisson(la))))
+                if (h, a) in played:                     # 이미 끝난 경기는 실제 스코어 고정
+                    hs, as_ = played[(h, a)]
+                    games.append((h, a, int(hs), int(as_)))
+                else:
+                    lh, la = lam(ratings[h], ratings[a], neu)
+                    games.append((h, a, int(rng.poisson(lh)), int(rng.poisson(la))))
             order, pts, gd, gf = _rank_group(g, games, ratings)
             winners.append(order[0]); runners.append(order[1]); thirds.append(order[2])
             t3 = order[2]

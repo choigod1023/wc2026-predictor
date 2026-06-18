@@ -63,9 +63,14 @@ else:
 
 # ── 3. 스코어 기반 몬테카를로 시뮬레이션 ───────────────────────
 # 스코어라인을 추첨해 2026 룰(승자승→골득실)로 조 순위, 녹아웃은 연장·승부차기.
+# 이미 끝난 조별 경기는 실제 스코어로 고정 → 대회 진행에 따라 예측이 변동.
 fixtures = [(r.home_team, r.away_team, bool(r.neutral))
             for r in wc.sort_values('date').itertuples()]
-out = simulate_scores(fixtures, groups, ratings, score_params, n_sim=N_SIM)
+played = {(r.home_team, r.away_team): (int(r.home_score), int(r.away_score))
+          for r in wc.itertuples() if pd.notna(r.home_score)}
+out = simulate_scores(fixtures, groups, ratings, score_params, n_sim=N_SIM,
+                      played=played)
+print(f'기진행 조별 경기 {len(played)}개 결과 고정, 남은 경기만 시뮬')
 
 res = pd.DataFrame({'team': list(out['champion'].keys()),
                     'P_champion': [out['champion'][t] for t in out['champion']],
@@ -93,6 +98,10 @@ if not hist or hist[-1].get('p') != snap:
 hist = hist[-400:]
 json.dump(hist, open(HIST, 'w'), ensure_ascii=False)
 
+# 예측 변동 '경기적' 이유 생성 (prediction_changes.json)
+from changes import build_changes
+build_changes()
+
 print('=== 우승 확률 Top 12 (스코어 기반 시뮬) ===')
 print(res.head(12).to_string(index=False))
-print('\n저장: championship_probs.csv, stage_probs.json')
+print('\n저장: championship_probs.csv, stage_probs.json, prediction_changes.json')

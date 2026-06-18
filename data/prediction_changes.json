@@ -1,0 +1,53 @@
+[
+ {
+  "date": "2026-06-16",
+  "moves": [
+   {
+    "team": "France",
+    "dir": "up",
+    "delta": 0.0309,
+    "opp": "Senegal",
+    "sf": 3,
+    "sa": 1,
+    "result": "win",
+    "upset": false
+   }
+  ]
+ },
+ {
+  "date": "2026-06-15",
+  "moves": [
+   {
+    "team": "Spain",
+    "dir": "down",
+    "delta": -0.0553,
+    "opp": "Cape Verde",
+    "sf": 0,
+    "sa": 0,
+    "result": "draw",
+    "upset": true
+   },
+   {
+    "team": "Argentina",
+    "dir": "up",
+    "delta": 0.0213,
+    "other": true
+   }
+  ]
+ },
+ {
+  "date": "2026-06-14",
+  "moves": [
+   {
+    "team": "Ecuador",
+    "dir": "down",
+    "delta": -0.0208,
+    "opp": "Ivory Coast",
+    "sf": 0,
+    "sa": 1,
+    "result": "loss",
+    "upset": true
+   }
+  ]
+ }
+]

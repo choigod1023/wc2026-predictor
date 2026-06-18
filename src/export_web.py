@@ -23,6 +23,7 @@ DEFAULT_OUT = _os.path.join('..', 'wc2026-web', 'data')
 COPY = [
     'stage_probs.json', 'score_predictions.json', 'score_leaderboard.json',
     'model_leaderboard.json', 'champion_by_model.json', 'champion_history.json',
+    'prediction_changes.json',
 ]
 
 
