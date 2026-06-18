@@ -1,5 +1,20 @@
 [
  {
+  "date": "2026-06-18",
+  "moves": [
+   {
+    "team": "England",
+    "dir": "up",
+    "delta": 0.0375,
+    "opp": "Croatia",
+    "sf": 4,
+    "sa": 2,
+    "result": "win",
+    "upset": false
+   }
+  ]
+ },
+ {
   "date": "2026-06-16",
   "moves": [
    {
