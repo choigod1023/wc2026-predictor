@@ -282,7 +282,12 @@ for r in wc.sort_values('date').itertuples():
         'rationale': rationale(r.home_team, r.away_team, d, lh, la, grid, ou, top, hcap),
     })
 
-json.dump(rows, open('data/score_predictions.json', 'w'),
-          ensure_ascii=False, indent=2)
-print(f"\n저장: score_leaderboard.json, score_predictions.json ({len(rows)}경기)")
-print('예시:', rows[0]['home'], rows[0]['expScore'], '|', rows[0]['rationale'])
+# 채점 무결성: 스코어 예측도 한 번 만들어지면 고정(사후 정보 유입 방지).
+# 재생성은 FORCE_PREDICTIONS=1. (score_leaderboard·params 는 계속 갱신)
+_SPRED = 'data/score_predictions.json'
+if _os.path.exists(_SPRED) and _os.environ.get('FORCE_PREDICTIONS') != '1':
+    print(f"(고정본 {_SPRED} 유지 — 재생성은 FORCE_PREDICTIONS=1)")
+else:
+    json.dump(rows, open(_SPRED, 'w'), ensure_ascii=False, indent=2)
+    print(f"\n저장: score_predictions.json ({len(rows)}경기)")
+print(f"저장: score_leaderboard.json, score_model_params.json")
