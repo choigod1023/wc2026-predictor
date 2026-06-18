@@ -61,6 +61,12 @@ if _os.path.exists(_FROZEN) and _os.environ.get('FORCE_PREDICTIONS') != '1':
 else:
     pred.to_csv(_FROZEN, index=False)
 
+# '현재(업데이트된 Elo)' 승무패 예측 — 항상 갱신. 고정본과 비교해 '예측 변화' 표시용.
+json.dump([{'home': r['home'], 'away': r['away'],
+            'pHome': r['P_home'], 'pDraw': r['P_draw'], 'pAway': r['P_away']}
+           for r in rows],
+          open('data/live_predictions.json', 'w'), ensure_ascii=False)
+
 # ── 3. 스코어 기반 몬테카를로 시뮬레이션 ───────────────────────
 # 스코어라인을 추첨해 2026 룰(승자승→골득실)로 조 순위, 녹아웃은 연장·승부차기.
 # 이미 끝난 조별 경기는 실제 스코어로 고정 → 대회 진행에 따라 예측이 변동.

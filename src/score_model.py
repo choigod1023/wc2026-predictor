@@ -290,4 +290,11 @@ if _os.path.exists(_SPRED) and _os.environ.get('FORCE_PREDICTIONS') != '1':
 else:
     json.dump(rows, open(_SPRED, 'w'), ensure_ascii=False, indent=2)
     print(f"\n저장: score_predictions.json ({len(rows)}경기)")
-print(f"저장: score_leaderboard.json, score_model_params.json")
+
+# '현재(업데이트된 Elo)' 스코어 예측 — 항상 갱신. 고정본과 비교해 '예측 변화' 표시용.
+json.dump([{'home': r['home'], 'away': r['away'], 'expScore': r['expScore'],
+            'lambdaHome': r['lambdaHome'], 'lambdaAway': r['lambdaAway'],
+            'overUnder': r['overUnder'], 'fairHandicap': r['fairHandicap']}
+           for r in rows],
+          open('data/live_score.json', 'w'), ensure_ascii=False)
+print(f"저장: score_leaderboard.json, score_model_params.json, live_score.json")
