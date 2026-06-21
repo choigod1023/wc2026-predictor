@@ -1,49 +1,49 @@
 team,P_champion,P_final
-Argentina,0.2348,0.34635
-Spain,0.1879,0.29305
-France,0.12925,0.22545
-England,0.10385,0.19515
-Colombia,0.0596,0.1294
-Brazil,0.05795,0.12485
-Germany,0.0269,0.07375
-Morocco,0.02385,0.06455
-Mexico,0.0236,0.06095
-Netherlands,0.02155,0.0588
-Portugal,0.0193,0.04975
-Japan,0.01725,0.0492
-Norway,0.01555,0.0427
-Ecuador,0.013,0.03625
-Belgium,0.0094,0.03095
-Switzerland,0.0094,0.03125
-Uruguay,0.00705,0.02495
-United States,0.0066,0.02505
-Austria,0.0058,0.0198
-Croatia,0.0058,0.0197
-Australia,0.0036,0.01475
-South Korea,0.00315,0.01305
-Paraguay,0.0031,0.012
-Canada,0.00275,0.0141
-Iran,0.00205,0.0074
-Senegal,0.0017,0.0076
-Ivory Coast,0.0016,0.00815
-Scotland,0.00115,0.0047
-Algeria,0.00105,0.0043
-Sweden,0.00065,0.004
-Egypt,0.0003,0.00295
-DR Congo,0.0002,0.00135
-Panama,0.0002,0.00095
-Uzbekistan,0.0001,0.0012
-Saudi Arabia,0.0,0.0004
-Tunisia,0.0,5e-05
-Bosnia and Herzegovina,0.0,0.0
-Haiti,0.0,0.0
-New Zealand,0.0,0.00045
-Curaçao,0.0,0.0
-Iraq,0.0,0.0001
+Argentina,0.23755,0.34845
+Spain,0.18495,0.2909
+France,0.1256,0.2226
+England,0.09645,0.18365
+Colombia,0.06245,0.133
+Brazil,0.0565,0.1229
+Germany,0.03685,0.09325
+Netherlands,0.03305,0.08245
+Morocco,0.02415,0.06085
+Mexico,0.02255,0.0634
+Japan,0.02145,0.059
+Portugal,0.01745,0.04675
+Norway,0.01335,0.0414
+Switzerland,0.0099,0.03205
+Belgium,0.0092,0.02945
+Uruguay,0.00705,0.02415
+United States,0.0068,0.02435
+Austria,0.00555,0.0206
+Croatia,0.0044,0.01775
+Australia,0.00385,0.0161
+Canada,0.00385,0.01515
+Paraguay,0.0031,0.0122
+Ecuador,0.003,0.0089
+South Korea,0.00275,0.0105
+Senegal,0.0023,0.0089
+Ivory Coast,0.0014,0.00615
+Iran,0.0013,0.0067
+Algeria,0.00125,0.00455
+Egypt,0.0007,0.00295
+Scotland,0.0006,0.0043
+Uzbekistan,0.0002,0.0014
+Sweden,0.0002,0.0021
+DR Congo,0.0001,0.0012
+Panama,0.0001,0.0006
+New Zealand,5e-05,0.0005
+Bosnia and Herzegovina,0.0,5e-05
 Qatar,0.0,0.0
-Cape Verde,0.0,0.0002
-South Africa,0.0,5e-05
-Ghana,0.0,0.0001
-Czech Republic,0.0,0.0001
-Jordan,0.0,0.00015
+Iraq,0.0,0.0001
+Curaçao,0.0,0.0
+Czech Republic,0.0,0.0
+Saudi Arabia,0.0,0.0003
+Tunisia,0.0,0.0
+Jordan,0.0,0.0001
+Haiti,0.0,0.0
+South Africa,0.0,0.0
+Cape Verde,0.0,0.00015
+Ghana,0.0,0.00015
 Turkey,0.0,0.0
