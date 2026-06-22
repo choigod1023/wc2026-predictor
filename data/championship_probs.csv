@@ -1,49 +1,49 @@
 team,P_champion,P_final
-Argentina,0.23755,0.34845
-Spain,0.18495,0.2909
-France,0.1256,0.2226
-England,0.09645,0.18365
-Colombia,0.06245,0.133
-Brazil,0.0565,0.1229
-Germany,0.03685,0.09325
-Netherlands,0.03305,0.08245
-Morocco,0.02415,0.06085
-Mexico,0.02255,0.0634
-Japan,0.02145,0.059
-Portugal,0.01745,0.04675
-Norway,0.01335,0.0414
-Switzerland,0.0099,0.03205
-Belgium,0.0092,0.02945
-Uruguay,0.00705,0.02415
-United States,0.0068,0.02435
-Austria,0.00555,0.0206
-Croatia,0.0044,0.01775
-Australia,0.00385,0.0161
-Canada,0.00385,0.01515
-Paraguay,0.0031,0.0122
-Ecuador,0.003,0.0089
-South Korea,0.00275,0.0105
-Senegal,0.0023,0.0089
-Ivory Coast,0.0014,0.00615
-Iran,0.0013,0.0067
-Algeria,0.00125,0.00455
-Egypt,0.0007,0.00295
-Scotland,0.0006,0.0043
-Sweden,0.0002,0.0021
-Uzbekistan,0.0002,0.0014
-Panama,0.0001,0.0006
-DR Congo,0.0001,0.0012
-New Zealand,5e-05,0.0005
+Argentina,0.232,0.3459
+Spain,0.20015,0.31205
+France,0.12345,0.2172
+England,0.0954,0.18775
+Colombia,0.06035,0.12865
+Brazil,0.05335,0.11815
+Germany,0.03695,0.0901
+Netherlands,0.03495,0.08695
+Japan,0.02445,0.06315
+Morocco,0.0222,0.0609
+Mexico,0.02135,0.06295
+Portugal,0.0186,0.0479
+Norway,0.01275,0.03825
+Switzerland,0.0108,0.0302
+Belgium,0.0081,0.0265
+United States,0.00645,0.024
+Austria,0.0058,0.0225
+Croatia,0.0041,0.01615
+Australia,0.00355,0.0153
+Ecuador,0.00335,0.0106
+Canada,0.00325,0.0137
+Paraguay,0.00305,0.01175
+Uruguay,0.003,0.0099
+South Korea,0.00275,0.0113
+Iran,0.00225,0.00995
+Senegal,0.00185,0.00735
+Egypt,0.0015,0.0087
+Ivory Coast,0.00115,0.00595
+Algeria,0.00115,0.00515
+Scotland,0.0008,0.00485
+Sweden,0.0005,0.00235
+DR Congo,0.00025,0.00105
+Panama,0.0002,0.00075
+Uzbekistan,0.00015,0.0011
+Czech Republic,5e-05,0.00015
 Qatar,0.0,0.0
-Saudi Arabia,0.0,0.0003
-Czech Republic,0.0,0.0
-Turkey,0.0,0.0
 Ghana,0.0,0.00015
-Haiti,0.0,0.0
-Jordan,0.0,0.0001
-Iraq,0.0,0.0001
 Tunisia,0.0,0.0
-Bosnia and Herzegovina,0.0,5e-05
+Saudi Arabia,0.0,5e-05
+Bosnia and Herzegovina,0.0,0.00015
+New Zealand,0.0,0.0
+Turkey,0.0,0.0
+Iraq,0.0,0.0002
+Haiti,0.0,0.0
+Jordan,0.0,5e-05
 South Africa,0.0,0.0
-Cape Verde,0.0,0.00015
+Cape Verde,0.0,0.00025
 Curaçao,0.0,0.0
