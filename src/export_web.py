@@ -24,6 +24,7 @@ COPY = [
     'stage_probs.json', 'score_predictions.json', 'score_leaderboard.json',
     'model_leaderboard.json', 'champion_by_model.json', 'champion_history.json',
     'prediction_changes.json', 'live_predictions.json', 'live_score.json',
+    'odds_history.json',
 ]
 
 
@@ -56,7 +57,9 @@ def main():
               ensure_ascii=False, indent=0)
 
     for name in COPY:
-        shutil.copyfile(_os.path.join('data', name), _os.path.join(out, name))
+        src = _os.path.join('data', name)
+        if _os.path.exists(src):
+            shutil.copyfile(src, _os.path.join(out, name))
 
     # closing_odds.csv → closing_odds.json (기록된 행만; 종료 경기 배당 적중 표시용)
     with open('data/closing_odds.csv', encoding='utf-8') as f:

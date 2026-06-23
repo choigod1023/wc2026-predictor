@@ -132,6 +132,22 @@ def main():
     if filled:
         print('→ python src/evaluate.py 로 모델 vs 시장 채점 가능 (결과가 있는 경기 한정)')
 
+    # 배당 추이(시계열) 누적 — 매 실행마다 변동 시 스냅샷 append (개장 대비 변동 표시용)
+    HPATH = 'data/odds_history.json'
+    hist = json.load(open(HPATH)) if _os.path.exists(HPATH) else {}
+    now = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%MZ')
+    added = 0
+    for (h, a), (w, dr, l) in odds.items():
+        key = f'{h}|{a}'
+        seq = hist.get(key, [])
+        snap = {'t': now, 'w': w, 'd': dr, 'l': l}
+        if not seq or (seq[-1]['w'], seq[-1]['d'], seq[-1]['l']) != (w, dr, l):
+            seq.append(snap)
+            hist[key] = seq[-60:]   # 경기당 최근 60 스냅샷
+            added += 1
+    json.dump(hist, open(HPATH, 'w'), ensure_ascii=False)
+    print(f'배당 추이 스냅샷: {added}경기 갱신 (누적 {len(hist)}경기)')
+
 
 if __name__ == '__main__':
     main()
