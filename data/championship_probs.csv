@@ -1,49 +1,49 @@
 team,P_champion,P_final
-Argentina,0.232,0.3459
-Spain,0.20015,0.31205
-France,0.12345,0.2172
-England,0.0954,0.18775
-Colombia,0.06035,0.12865
-Brazil,0.05335,0.11815
-Germany,0.03695,0.0901
-Netherlands,0.03495,0.08695
-Japan,0.02445,0.06315
-Morocco,0.0222,0.0609
-Mexico,0.02135,0.06295
-Portugal,0.0186,0.0479
-Norway,0.01275,0.03825
-Switzerland,0.0108,0.0302
-Belgium,0.0081,0.0265
-United States,0.00645,0.024
-Austria,0.0058,0.0225
-Croatia,0.0041,0.01615
-Australia,0.00355,0.0153
-Ecuador,0.00335,0.0106
-Canada,0.00325,0.0137
-Paraguay,0.00305,0.01175
-Uruguay,0.003,0.0099
-South Korea,0.00275,0.0113
-Iran,0.00225,0.00995
-Senegal,0.00185,0.00735
-Egypt,0.0015,0.0087
-Algeria,0.00115,0.00515
-Ivory Coast,0.00115,0.00595
-Scotland,0.0008,0.00485
-Sweden,0.0005,0.00235
-DR Congo,0.00025,0.00105
-Panama,0.0002,0.00075
+Argentina,0.258,0.3766
+Spain,0.1908,0.3053
+France,0.13285,0.23145
+England,0.0916,0.1791
+Colombia,0.0578,0.12585
+Brazil,0.04905,0.11265
+Germany,0.0355,0.09115
+Netherlands,0.03295,0.0822
+Morocco,0.0238,0.0601
+Japan,0.0208,0.05495
+Mexico,0.02005,0.06025
+Norway,0.01675,0.05205
+Portugal,0.01655,0.045
+Switzerland,0.00925,0.03275
+Belgium,0.00665,0.0228
+United States,0.00555,0.02235
+Croatia,0.00435,0.0172
+Austria,0.00395,0.01535
+Australia,0.00315,0.01475
+Ecuador,0.00315,0.00955
+Canada,0.00255,0.01375
+Uruguay,0.00235,0.0078
+South Korea,0.0022,0.01105
+Iran,0.00205,0.00965
+Paraguay,0.002,0.00975
+Algeria,0.0019,0.009
+Egypt,0.0015,0.0076
+Senegal,0.00075,0.00445
+Scotland,0.00075,0.0048
+Ivory Coast,0.00065,0.0059
+Sweden,0.0002,0.00155
+Panama,0.0002,0.0006
 Uzbekistan,0.00015,0.0011
-Czech Republic,5e-05,0.00015
-Iraq,0.0,0.0002
-Bosnia and Herzegovina,0.0,0.00015
+DR Congo,0.00015,0.0011
+New Zealand,5e-05,5e-05
+Tunisia,0.0,0.0
+Jordan,0.0,0.0
+Czech Republic,0.0,0.0
+Saudi Arabia,0.0,0.0001
 Turkey,0.0,0.0
+South Africa,0.0,5e-05
+Curaçao,0.0,0.0
+Ghana,0.0,0.0
 Haiti,0.0,0.0
 Qatar,0.0,0.0
-Jordan,0.0,5e-05
-Ghana,0.0,0.00015
-New Zealand,0.0,0.0
-Cape Verde,0.0,0.00025
-Saudi Arabia,0.0,5e-05
-Tunisia,0.0,0.0
-Curaçao,0.0,0.0
-South Africa,0.0,0.0
+Iraq,0.0,0.0
+Bosnia and Herzegovina,0.0,0.0001
+Cape Verde,0.0,0.0002
