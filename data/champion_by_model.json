@@ -92,11 +92,11 @@
         "p": 0.0027
       },
       {
-        "team": "Canada",
+        "team": "South Korea",
         "p": 0.0026
       },
       {
-        "team": "South Korea",
+        "team": "Canada",
         "p": 0.0026
       }
     ]
@@ -292,15 +292,15 @@
         "p": 0.0033
       },
       {
-        "team": "Paraguay",
-        "p": 0.0032
-      },
-      {
         "team": "Australia",
         "p": 0.0032
       },
       {
         "team": "Iran",
+        "p": 0.0032
+      },
+      {
+        "team": "Paraguay",
         "p": 0.0032
       }
     ]
