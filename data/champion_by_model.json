@@ -68,11 +68,11 @@
         "p": 0.0081
       },
       {
-        "team": "Croatia",
+        "team": "Uruguay",
         "p": 0.0064
       },
       {
-        "team": "Uruguay",
+        "team": "Croatia",
         "p": 0.0064
       },
       {
@@ -162,19 +162,19 @@
         "p": 0.0099
       },
       {
-        "team": "Switzerland",
-        "p": 0.0081
-      },
-      {
         "team": "Belgium",
         "p": 0.0081
       },
       {
-        "team": "Croatia",
-        "p": 0.0064
+        "team": "Switzerland",
+        "p": 0.0081
       },
       {
         "team": "Uruguay",
+        "p": 0.0064
+      },
+      {
+        "team": "Croatia",
         "p": 0.0064
       },
       {
@@ -272,11 +272,11 @@
         "p": 0.0082
       },
       {
-        "team": "Croatia",
+        "team": "Uruguay",
         "p": 0.0068
       },
       {
-        "team": "Uruguay",
+        "team": "Croatia",
         "p": 0.0068
       },
       {
@@ -292,7 +292,7 @@
         "p": 0.0033
       },
       {
-        "team": "Iran",
+        "team": "Australia",
         "p": 0.0032
       },
       {
@@ -300,7 +300,7 @@
         "p": 0.0032
       },
       {
-        "team": "Australia",
+        "team": "Iran",
         "p": 0.0032
       }
     ]
