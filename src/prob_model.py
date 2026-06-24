@@ -76,10 +76,32 @@ for lo in np.arange(0, 1.0, 0.2):
     if mask.sum() > 10:
         print(f'  예측 {lo:.1f}~{lo+0.2:.1f}: 실제 {actual_h[mask].mean():.3f}  (n={mask.sum()})')
 
-# 전체 데이터(2026-06-08까지)로 재학습한 최종 모델 저장
+# ── 시간가중(time-decay) 검증: 균등 vs 반감기 3년 ────────────────
+# 근거: Dixon&Coles(1997), Ley et al(2019). 오래된 경기를 지수 down-weight.
+# experiments/time_decay_backtest.py 에서 두 독립 walk-forward 창 모두
+# Brier 일관 개선 확인(2020~2023 -0.0015, 2024~현재 -0.0014, 최적 반감기 ≈3년).
+HALFLIFE_YEARS = 3.0
+def _decay_w(dates, ref):
+    age = (pd.to_datetime(ref) - pd.to_datetime(dates)).dt.days.values.astype(float)
+    return 0.5 ** (age / (HALFLIFE_YEARS * 365.25))
+
+w_tr = _decay_w(train['date'], '2024-01-01')
+m_decay = LogisticRegression(max_iter=1000)
+m_decay.fit(X_tr, y_tr, sample_weight=w_tr)
+p_decay = m_decay.predict_proba(X_te)
+print(f'Brier (시간가중 {HALFLIFE_YEARS}년):  {brier(p_decay, y_te):.4f}'
+      f'  (균등 대비 {brier(p_decay, y_te)-brier(p_model, y_te):+.4f})')
+
+# 전체 데이터로 재학습한 최종(현재형) 모델 저장 — 시간가중 적용.
+#   주의: 대회 후 '모델 vs 시장' 공정 채점용 개막 전 프리즈 스냅샷
+#   (group_stage_predictions.csv·score_predictions.json)은 별도 가드로 보존됨.
+#   여기서 만드는 prob_model.pkl 은 '현재 강도' 추정용(라이브/현재 예측).
 import pickle
+_latest = comp['date'].max()
 final = LogisticRegression(max_iter=1000)
-final.fit(comp[['elo_diff_pre']].values, comp['outcome'].values)
+final.fit(comp[['elo_diff_pre']].values, comp['outcome'].values,
+          sample_weight=_decay_w(comp['date'], _latest))
 with open('data/prob_model.pkl', 'wb') as f:
-    pickle.dump({'model': final, 'classes': list(final.classes_)}, f)
-print('\n최종 모델 저장 완료 (전체 기간 재학습)')
+    pickle.dump({'model': final, 'classes': list(final.classes_),
+                 'halflife_years': HALFLIFE_YEARS}, f)
+print(f'\n최종 모델 저장 완료 (전체 기간 재학습 · 시간가중 반감기 {HALFLIFE_YEARS}년)')

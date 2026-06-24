@@ -61,10 +61,10 @@ class IndepPoisson:
     name = '독립 포아송'
     short = 'poisson'
 
-    def fit(self, d, hs, as_):
+    def fit(self, d, hs, as_, w=None):
         d = d.reshape(-1, 1) / 100.0      # 스케일
-        self.mh = PoissonRegressor(alpha=1e-6, max_iter=500).fit(d, hs)
-        self.ma = PoissonRegressor(alpha=1e-6, max_iter=500).fit(d, as_)
+        self.mh = PoissonRegressor(alpha=1e-6, max_iter=500).fit(d, hs, sample_weight=w)
+        self.ma = PoissonRegressor(alpha=1e-6, max_iter=500).fit(d, as_, sample_weight=w)
         return self
 
     def lams(self, d):
@@ -82,12 +82,14 @@ class DixonColes(IndepPoisson):
     name = 'Dixon-Coles'
     short = 'dixon_coles'
 
-    def fit(self, d, hs, as_):
-        super().fit(d, hs, as_)
+    def fit(self, d, hs, as_, w=None):
+        super().fit(d, hs, as_, w)
         lh, la = self.lams(d)
+        ww = np.ones_like(hs, dtype=float) if w is None else np.asarray(w, dtype=float)
         best = (-np.inf, 0.0)
         for rho in np.linspace(-0.2, 0.2, 81):
-            ll = self._loglik(hs, as_, lh, la, rho)
+            p = pois_pmf(hs, lh) * pois_pmf(as_, la) * self._tau(hs, as_, lh, la, rho)
+            ll = np.sum(ww * np.log(np.clip(p, 1e-12, None)))
             if ll > best[0]:
                 best = (ll, rho)
         self.rho = best[1]
@@ -128,7 +130,7 @@ class FlatPoisson(IndepPoisson):
     name = '기준선·평균득점'
     short = 'flat'
 
-    def fit(self, d, hs, as_):
+    def fit(self, d, hs, as_, w=None):
         self.lh0, self.la0 = float(np.mean(hs)), float(np.mean(as_))
         return self
 
@@ -183,8 +185,15 @@ json.dump(leaderboard, open('data/score_leaderboard.json', 'w'),
           ensure_ascii=False, indent=2)
 
 # ── 72경기 예측 (전체기간 재학습한 대표=Dixon-Coles) ───────────
+# 현재형(라이브) 적합엔 시간가중(반감기 3년) 적용 — '현재 강도' 반영.
+# 근거·검증: experiments/score_decay_backtest.py (두 walk-forward 창 모두
+# 스코어 logLik↑·O/U2.5 Brier↓ 동시 개선). 위 검증 리더보드 적합은 균등 유지.
+# 주의: 개막 전 프리즈 스냅샷(score_predictions.json)은 아래 가드로 보존.
+HALFLIFE_YEARS = 3.0
+_age = (pd.to_datetime(df['date'].max()) - pd.to_datetime(df['date'])).dt.days.values.astype(float)
+_w = 0.5 ** (_age / (HALFLIFE_YEARS * 365.25))
 PRIMARY = DixonColes().fit(df['elo_diff_pre'].values,
-                           df['home_score'].values, df['away_score'].values)
+                           df['home_score'].values, df['away_score'].values, _w)
 
 # 시뮬레이션(sim.py)이 임의 대진의 기대득점을 계산할 수 있도록 계수 export.
 #   log λ_home = a0 + a1·(d/100) ,  log λ_away = b0 + b1·(d/100)  (d=elo_diff_pre)

@@ -29,6 +29,14 @@
   모델 vs 시장 주요 괴리: 아르헨티나(모델 20.0% vs 시장 9~10%),
   프랑스(모델 10.7% vs 시장 16~17%), 미국(모델 0.07% vs 시장 1.6%).
 
+## 시간가중 채택 (2026-06-24)
+근거: Dixon&Coles(1997), Ley et al(2019). experiments/time_decay_backtest.py·
+score_decay_backtest.py 가 두 독립 walk-forward 창 모두에서 Brier(prob)·
+logLik/O/U Brier(score) 일관 개선 확인(소폭, 최적 반감기 ≈3년).
+**현재형 모델에만** 반감기 3년 시간가중 적용: prob_model.pkl 최종 적합,
+score_model PRIMARY 적합. 검증 리더보드 적합과 개막 전 프리즈 스냅샷
+(group_stage_predictions.csv·score_predictions.json)은 균등/보존 유지.
+
 ## 진행 중인 숙제 (사용자 작업)
 data/closing_odds.csv 에 각 경기 킥오프 직전 3-way 배당(odds_H/D/A, 소수 배당)을
 기록하는 것. 템플릿 생성되어 있음. 이것이 대회 후 판정의 필수 데이터다.
