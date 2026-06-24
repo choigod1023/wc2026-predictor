@@ -5,10 +5,10 @@ predict.py 와 compare_models.py 가 함께 쓰는 시뮬레이션 코어.
 어떤 확률 모델이 만든 72경기 확률(match_p)이든 동일한 규칙으로 대회를 돌려
 우승 확률과 단계별(R32~결승) 도달 확률을 추정한다.
 
-대표 시뮬레이션(simulate_scores)은 2026 공식 브래킷(R32~결승)을 그대로 전개해
-대진 경로 의존성을 보존한다(근사 b 제거). 3위 8팀은 공식 후보-조 제약을 지키는
-완전매칭으로 슬롯 배정. 모델 비교용 simulate()는 속도/단순성을 위해 기존
-무작위 풀 매칭(근사 b)을 유지한다.
+두 시뮬레이션(대표 simulate_scores, 모델비교 simulate) 모두 2026 공식 브래킷
+(R32~결승)을 그대로 전개해 대진 경로 의존성을 보존한다(근사 b 제거). 3위 8팀은
+공식 후보-조 제약을 지키는 완전매칭으로 슬롯 배정. 차이는 승부 판정뿐:
+simulate_scores는 스코어라인 추첨(+연장·승부차기), simulate는 Elo 승리확률.
 """
 import numpy as np
 from functools import cmp_to_key, lru_cache
@@ -126,6 +126,14 @@ def simulate(match_p, groups, ratings, n_sim=20000, seed=42):
     reach = {s: defaultdict(int) for s in STAGES}
 
     items = list(match_p.items())
+    # 공식 조 라벨(A~L) 복원 — 브래킷 슬롯 해소용
+    idx_letter = {}
+    for gi, g in enumerate(groups):
+        lab = next((GROUP_ANCHOR[t] for t in g if t in GROUP_ANCHOR), None)
+        if lab is None:
+            raise ValueError(f'조 라벨 앵커(시드팀) 없음: {g}')
+        idx_letter[gi] = lab
+
     for _ in range(n_sim):
         pts = defaultdict(int)
         for (h, a), (ph, pd_, pa) in items:
@@ -137,47 +145,48 @@ def simulate(match_p, groups, ratings, n_sim=20000, seed=42):
                 pts[a] += 1
             else:
                 pts[a] += 3
-        winners, runners, thirds = [], [], []
-        for g in groups:
-            order = sorted(g, key=lambda t: (pts[t], ratings[t]), reverse=True)  # 근사(a)
-            winners.append(order[0])
-            runners.append(order[1])
-            thirds.append(order[2])
-        best3 = sorted(thirds, key=lambda t: (pts[t], ratings[t]), reverse=True)[:8]
-        qualified = winners + runners + best3                       # 32강
+        # 조 순위(스코어 없으니 동률은 Elo로 근사 a) + 조 라벨별 매핑
+        win_by, run_by, third_by, third_key = {}, {}, {}, {}
+        for gi, g in enumerate(groups):
+            order = sorted(g, key=lambda t: (pts[t], ratings[t]), reverse=True)
+            L = idx_letter[gi]
+            win_by[L], run_by[L], third_by[L] = order[0], order[1], order[2]
+            third_key[L] = (pts[order[2]], ratings[order[2]])
+        qual_thirds = sorted(third_key, key=lambda L: third_key[L], reverse=True)[:8]
+        slot_third = assign_thirds(tuple(sorted(qual_thirds)))
+        qualified = (list(win_by.values()) + list(run_by.values())
+                     + [third_by[L] for L in qual_thirds])
 
-        # 근사(b): 1위 풀 vs (2·3위) 풀 무작위 매칭
-        pool_top = list(rng.permutation(winners))
-        pool_rest = list(rng.permutation(runners + best3))
-        alive = []
-        for a_, b_ in zip(pool_top, pool_rest):
-            alive.append(a_ if rng.random() < ko(a_, b_) else b_)
-        rest_left = pool_rest[len(pool_top):]
-        for i in range(0, len(rest_left), 2):
-            a_, b_ = rest_left[i], rest_left[i + 1]
-            alive.append(a_ if rng.random() < ko(a_, b_) else b_)
-        # 이제 alive = 16강 진출팀
+        # 공식 브래킷 고정 전개 (simulate_scores 와 동일 구조, 승부는 Elo 확률)
+        def slot_team(slot, no):
+            k, v = slot
+            if k == 'W':
+                return win_by[v]
+            if k == 'R':
+                return run_by[v]
+            return third_by[slot_third[no]]
+        winner = {}
+        for no in R32_NOS:
+            h, a = BRACKET[no]
+            x, y = slot_team(h, no), slot_team(a, no)
+            winner[no] = x if rng.random() < ko(x, y) else y
+        for no in R16_NOS + QF_NOS + SF_NOS + [FINAL_NO]:
+            (_, vh), (_, va) = BRACKET[no]
+            x, y = winner[vh], winner[va]
+            winner[no] = x if rng.random() < ko(x, y) else y
 
         for t in qualified:
             reach[32][t] += 1
-        for t in alive:
-            reach[16][t] += 1
-
-        while len(alive) > 1:
-            alive = list(rng.permutation(alive))
-            nxt = []
-            for i in range(0, len(alive), 2):
-                a_, b_ = alive[i], alive[i + 1]
-                nxt.append(a_ if rng.random() < ko(a_, b_) else b_)
-            if len(alive) == 2:
-                finals[alive[0]] += 1
-                finals[alive[1]] += 1
-            # nxt = 다음 라운드 진출팀; 라운드 크기로 단계 기록
-            if len(nxt) in reach:
-                for t in nxt:
-                    reach[len(nxt)][t] += 1
-            alive = nxt
-        champs[alive[0]] += 1
+        for no in R32_NOS:
+            reach[16][winner[no]] += 1
+        for no in R16_NOS:
+            reach[8][winner[no]] += 1
+        for no in QF_NOS:
+            reach[4][winner[no]] += 1
+        for no in SF_NOS:
+            reach[2][winner[no]] += 1
+            finals[winner[no]] += 1
+        champs[winner[FINAL_NO]] += 1
 
     teams = set()
     for g in groups:
