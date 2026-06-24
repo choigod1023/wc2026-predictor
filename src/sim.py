@@ -5,17 +5,82 @@ predict.py 와 compare_models.py 가 함께 쓰는 시뮬레이션 코어.
 어떤 확률 모델이 만든 72경기 확률(match_p)이든 동일한 규칙으로 대회를 돌려
 우승 확률과 단계별(R32~결승) 도달 확률을 추정한다.
 
-근사 2가지는 문서/주석대로 유지:
-  (a) 조 동률은 골득실 대신 Elo로 타이브레이크
-  (b) 32강 대진은 공식 브래킷 대신 1위풀 vs 2·3위풀 무작위 추첨
+대표 시뮬레이션(simulate_scores)은 2026 공식 브래킷(R32~결승)을 그대로 전개해
+대진 경로 의존성을 보존한다(근사 b 제거). 3위 8팀은 공식 후보-조 제약을 지키는
+완전매칭으로 슬롯 배정. 모델 비교용 simulate()는 속도/단순성을 위해 기존
+무작위 풀 매칭(근사 b)을 유지한다.
 """
 import numpy as np
-from functools import cmp_to_key
+from functools import cmp_to_key, lru_cache
 from collections import defaultdict
 
 STAGES = [32, 16, 8, 4, 2]            # 도달 라운드 크기
 STAGE_NAME = {32: 'R32', 16: 'R16', 8: 'QF', 4: 'SF', 2: 'F'}
 HOME_ADV = 100
+
+# ── 공식 2026 녹아웃 브래킷 (R32~결승) ──────────────────────────
+# 출처: FIFA 공식 대진 / Wikipedia 2026 WC knockout stage. (= wc2026-web/lib/bracket.ts)
+# 조 라벨 앵커: 각 조에 정확히 1팀씩 들어가는 시드/개최국 → 조 라벨(A~L) 복원용.
+GROUP_ANCHOR = {
+    'Mexico': 'A', 'Canada': 'B', 'Brazil': 'C', 'United States': 'D',
+    'Germany': 'E', 'Netherlands': 'F', 'Belgium': 'G', 'Spain': 'H',
+    'France': 'I', 'Argentina': 'J', 'Portugal': 'K', 'England': 'L',
+}
+# 슬롯: ('W',조) 1위 · ('R',조) 2위 · ('T',후보조들) 3위 · ('M',경기no) 앞 라운드 승자
+BRACKET = {
+    73: (('R', 'A'), ('R', 'B')), 74: (('W', 'E'), ('T', 'ABCDF')),
+    75: (('W', 'F'), ('R', 'C')), 76: (('W', 'C'), ('R', 'F')),
+    77: (('W', 'I'), ('T', 'CDFGH')), 78: (('R', 'E'), ('R', 'I')),
+    79: (('W', 'A'), ('T', 'CEFHI')), 80: (('W', 'L'), ('T', 'EHIJK')),
+    81: (('W', 'D'), ('T', 'BEFIJ')), 82: (('W', 'G'), ('T', 'AEHIJ')),
+    83: (('R', 'K'), ('R', 'L')), 84: (('W', 'H'), ('R', 'J')),
+    85: (('W', 'B'), ('T', 'EFGIJ')), 86: (('W', 'J'), ('R', 'H')),
+    87: (('W', 'K'), ('T', 'DEIJL')), 88: (('R', 'D'), ('R', 'G')),
+    89: (('M', 74), ('M', 77)), 90: (('M', 73), ('M', 75)),
+    91: (('M', 76), ('M', 78)), 92: (('M', 79), ('M', 80)),
+    93: (('M', 83), ('M', 84)), 94: (('M', 81), ('M', 82)),
+    95: (('M', 86), ('M', 88)), 96: (('M', 85), ('M', 87)),
+    97: (('M', 89), ('M', 90)), 98: (('M', 93), ('M', 94)),
+    99: (('M', 91), ('M', 92)), 100: (('M', 95), ('M', 96)),
+    101: (('M', 97), ('M', 98)), 102: (('M', 99), ('M', 100)),
+    104: (('M', 101), ('M', 102)),
+}
+R32_NOS = list(range(73, 89))
+R16_NOS = list(range(89, 97))
+QF_NOS = list(range(97, 101))
+SF_NOS = [101, 102]
+FINAL_NO = 104
+# 3위가 들어갈 수 있는 R32 슬롯별 후보 조 (위 BRACKET의 T슬롯)
+TSLOTS = {74: 'ABCDF', 77: 'CDFGH', 79: 'CEFHI', 80: 'EHIJK',
+          81: 'BEFIJ', 82: 'AEHIJ', 85: 'EFGIJ', 87: 'DEIJL'}
+_TSLOT_NOS = list(TSLOTS)
+
+
+@lru_cache(maxsize=None)
+def assign_thirds(qual_letters):
+    """진출한 8개 조 3위(조 라벨 튜플) → {R32경기no: 조라벨} 슬롯 배정.
+    각 3위는 그 슬롯의 후보 조에 속할 때만 배정(공식 제약). 증대경로 완전매칭으로
+    항상 유효 배정 존재(495조합 전수 확인). 결과 캐시(조합 ≤495)."""
+    qual = set(qual_letters)
+    mg = {}                              # 조라벨 -> 슬롯no
+    def aug(slot, seen):
+        for g in sorted(set(TSLOTS[slot]) & qual):
+            if g in seen:
+                continue
+            seen.add(g)
+            if g not in mg or aug(mg[g], seen):
+                mg[g] = slot
+                return True
+        return False
+    for slot in _TSLOT_NOS:
+        aug(slot, set())
+    res = {slot: g for g, slot in mg.items()}
+    if len(res) < 8:                     # 안전장치(이론상 도달 안 함)
+        ls = [s for s in _TSLOT_NOS if s not in res]
+        lg = [g for g in qual if g not in mg]
+        for s, g in zip(ls, lg):
+            res[s] = g
+    return res
 
 
 def recover_groups(wc_df):
@@ -130,8 +195,8 @@ def simulate(match_p, groups, ratings, n_sim=20000, seed=42):
 # ══════════════════════════════════════════════════════════════════
 # 스코어 기반 시뮬레이션 — 실제 스코어라인을 추첨해 2026 룰대로 순위 판정
 #   · 조 동률: 승점 → 승자승(맞대결 승점·골득실·다득점) → 전체 골득실·다득점 → Elo
-#   · 녹아웃: 스코어라인 추첨 → 동점 시 연장(λ×1/3) → 그래도 동점 시 승부차기
-# 근사(b)만 유지: 32강 대진은 1위풀 vs 2·3위풀 무작위 추첨.
+#   · 녹아웃: 공식 2026 브래킷(R32~결승) 고정 전개 → 스코어 추첨 → 연장(λ×1/3)
+#            → 승부차기. 3위 8팀은 공식 후보-조 제약 완전매칭으로 슬롯 배정.
 # ══════════════════════════════════════════════════════════════════
 
 def make_lambda(params):
@@ -230,11 +295,16 @@ def simulate_scores(fixtures, groups, ratings, params, n_sim=20000, seed=42,
         p = 1 / (1 + 10 ** (-(ratings[a] - ratings[b]) / 800))
         return a if rng.random() < p else b
 
-    # 그룹별 경기 인덱스 미리 구성
+    # 그룹별 경기 인덱스 + 공식 조 라벨(A~L) 복원(앵커 시드팀 기준)
     group_of = {}
+    idx_letter = {}
     for gi, g in enumerate(groups):
         for t in g:
             group_of[t] = gi
+        lab = next((GROUP_ANCHOR[t] for t in g if t in GROUP_ANCHOR), None)
+        if lab is None:
+            raise ValueError(f'조 라벨 앵커(시드팀) 없음: {g}')
+        idx_letter[gi] = lab
     grp_fixtures = defaultdict(list)
     for h, a, neu in fixtures:
         grp_fixtures[group_of[h]].append((h, a, bool(neu)))
@@ -244,48 +314,57 @@ def simulate_scores(fixtures, groups, ratings, params, n_sim=20000, seed=42,
     reach = {s: defaultdict(int) for s in STAGES}
 
     for _ in range(n_sim):
-        winners, runners, thirds = [], [], []
+        win_by, run_by, third_by = {}, {}, {}        # 조라벨 -> 팀
         third_keys = {}
         for gi, g in enumerate(groups):
             games = []
             for h, a, neu in grp_fixtures[gi]:
-                if (h, a) in played:                     # 이미 끝난 경기는 실제 스코어 고정
+                if (h, a) in played:                  # 이미 끝난 경기는 실제 스코어 고정
                     hs, as_ = played[(h, a)]
                     games.append((h, a, int(hs), int(as_)))
                 else:
                     lh, la = lam(ratings[h], ratings[a], neu)
                     games.append((h, a, int(rng.poisson(lh)), int(rng.poisson(la))))
             order, pts, gd, gf = _rank_group(g, games, ratings)
-            winners.append(order[0]); runners.append(order[1]); thirds.append(order[2])
+            L = idx_letter[gi]
+            win_by[L], run_by[L], third_by[L] = order[0], order[1], order[2]
             t3 = order[2]
-            third_keys[t3] = (pts[t3], gd[t3], gf[t3], ratings[t3])
-        best3 = sorted(thirds, key=lambda t: third_keys[t], reverse=True)[:8]
-        qualified = winners + runners + best3
+            third_keys[L] = (pts[t3], gd[t3], gf[t3], ratings[t3])
 
-        pool_top = list(rng.permutation(winners))
-        pool_rest = list(rng.permutation(runners + best3))
-        alive = []
-        for a_, b_ in zip(pool_top, pool_rest):
-            alive.append(ko(a_, b_))
-        rest_left = pool_rest[len(pool_top):]
-        for i in range(0, len(rest_left), 2):
-            alive.append(ko(rest_left[i], rest_left[i + 1]))
+        # 3위 상위 8개 조 선발 → 공식 후보-제약 슬롯 배정
+        qual_thirds = sorted(third_keys, key=lambda L: third_keys[L], reverse=True)[:8]
+        slot_third = assign_thirds(tuple(sorted(qual_thirds)))   # {R32경기no: 조라벨}
+        qualified = (list(win_by.values()) + list(run_by.values())
+                     + [third_by[L] for L in qual_thirds])
+
+        # 공식 브래킷 전개 — 고정 트리(라운드별 무작위 재추첨 없음). 경로 의존성 보존.
+        def slot_team(slot, no):
+            k, v = slot
+            if k == 'W':
+                return win_by[v]
+            if k == 'R':
+                return run_by[v]
+            return third_by[slot_third[no]]          # 'T' (이 경기에 배정된 3위)
+        winner = {}
+        for no in R32_NOS:
+            h, a = BRACKET[no]
+            winner[no] = ko(slot_team(h, no), slot_team(a, no))
+        for no in R16_NOS + QF_NOS + SF_NOS + [FINAL_NO]:
+            (_, vh), (_, va) = BRACKET[no]           # 앞 라운드 승자끼리
+            winner[no] = ko(winner[vh], winner[va])
 
         for t in qualified:
             reach[32][t] += 1
-        for t in alive:
-            reach[16][t] += 1
-
-        while len(alive) > 1:
-            alive = list(rng.permutation(alive))
-            nxt = [ko(alive[i], alive[i + 1]) for i in range(0, len(alive), 2)]
-            if len(alive) == 2:
-                finals[alive[0]] += 1; finals[alive[1]] += 1
-            if len(nxt) in reach:
-                for t in nxt:
-                    reach[len(nxt)][t] += 1
-            alive = nxt
-        champs[alive[0]] += 1
+        for no in R32_NOS:                            # R32 승자 = R16 진출(16팀)
+            reach[16][winner[no]] += 1
+        for no in R16_NOS:                            # R16 승자 = 8강(8팀)
+            reach[8][winner[no]] += 1
+        for no in QF_NOS:                             # 8강 승자 = 4강(4팀)
+            reach[4][winner[no]] += 1
+        for no in SF_NOS:                             # 4강 승자 = 결승(2팀)
+            reach[2][winner[no]] += 1
+            finals[winner[no]] += 1
+        champs[winner[FINAL_NO]] += 1
 
     teams = set()
     for g in groups:
