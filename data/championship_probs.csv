@@ -20,8 +20,8 @@ Austria,0.00345,0.013
 Australia,0.0034,0.01095
 South Korea,0.00325,0.01295
 Canada,0.00265,0.01155
-Uruguay,0.0024,0.01025
 Paraguay,0.0024,0.00885
+Uruguay,0.0024,0.01025
 Ecuador,0.00215,0.00775
 Algeria,0.00205,0.00905
 Iran,0.002,0.0088
@@ -30,20 +30,20 @@ Senegal,0.00105,0.00565
 Ivory Coast,0.00085,0.00355
 Scotland,0.00065,0.0039
 Sweden,0.0006,0.00245
-Czech Republic,5e-05,0.0002
 DR Congo,5e-05,0.00035
-Iraq,0.0,0.0004
-Saudi Arabia,0.0,0.0001
+Czech Republic,5e-05,0.0002
 Qatar,0.0,0.0
-Tunisia,0.0,0.0
-Uzbekistan,0.0,0.0001
-Bosnia and Herzegovina,0.0,0.00015
-Panama,0.0,0.0
-South Africa,0.0,0.0
-Curaçao,0.0,0.0
-Haiti,0.0,0.0
-New Zealand,0.0,5e-05
+Saudi Arabia,0.0,0.0001
 Cape Verde,0.0,0.0002
-Ghana,0.0,0.0002
+Curaçao,0.0,0.0
+South Africa,0.0,0.0
+Tunisia,0.0,0.0
+Iraq,0.0,0.0004
+Panama,0.0,0.0
 Turkey,0.0,0.0
+Haiti,0.0,0.0
+Bosnia and Herzegovina,0.0,0.00015
+Uzbekistan,0.0,0.0001
+New Zealand,0.0,5e-05
 Jordan,0.0,0.0
+Ghana,0.0,0.0002
