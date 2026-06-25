@@ -44,11 +44,11 @@
         "p": 0.021
       },
       {
-        "team": "Norway",
+        "team": "Japan",
         "p": 0.0208
       },
       {
-        "team": "Japan",
+        "team": "Norway",
         "p": 0.0208
       },
       {
@@ -84,15 +84,15 @@
         "p": 0.004
       },
       {
+        "team": "Canada",
+        "p": 0.0031
+      },
+      {
         "team": "Austria",
         "p": 0.0031
       },
       {
         "team": "South Korea",
-        "p": 0.0031
-      },
-      {
-        "team": "Canada",
         "p": 0.0031
       },
       {
@@ -248,11 +248,11 @@
         "p": 0.0225
       },
       {
-        "team": "Norway",
+        "team": "Japan",
         "p": 0.0207
       },
       {
-        "team": "Japan",
+        "team": "Norway",
         "p": 0.0207
       },
       {
