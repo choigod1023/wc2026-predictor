@@ -24,7 +24,7 @@ COPY = [
     'stage_probs.json', 'score_predictions.json', 'score_leaderboard.json',
     'model_leaderboard.json', 'champion_by_model.json', 'champion_history.json',
     'prediction_changes.json', 'live_predictions.json', 'live_score.json',
-    'odds_history.json',
+    'odds_history.json', 'third_place_allocation.json',
 ]
 
 

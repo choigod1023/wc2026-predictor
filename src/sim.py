@@ -10,9 +10,19 @@ predict.py 와 compare_models.py 가 함께 쓰는 시뮬레이션 코어.
 공식 후보-조 제약을 지키는 완전매칭으로 슬롯 배정. 차이는 승부 판정뿐:
 simulate_scores는 스코어라인 추첨(+연장·승부차기), simulate는 Elo 승리확률.
 """
+import os as _os
+import json as _json
 import numpy as np
 from functools import cmp_to_key, lru_cache
 from collections import defaultdict
+
+# FIFA 공식 3위 배정표 (Annex C, 495조합). 출처: 2026 WC 규정 Annex C
+# (= Wikipedia Template:2026 FIFA World Cup third-place table 에서 전수 파싱·검증).
+# 키: 진출한 8개 조 3위의 정렬된 조합(예 'ABDEGIKL') → {R32경기no(str): 3위 조라벨}.
+_ALLOC_PATH = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))),
+                            'data', 'third_place_allocation.json')
+with open(_ALLOC_PATH, encoding='utf-8') as _f:
+    THIRD_ALLOC = _json.load(_f)
 
 STAGES = [32, 16, 8, 4, 2]            # 도달 라운드 크기
 STAGE_NAME = {32: 'R32', 16: 'R16', 8: 'QF', 4: 'SF', 2: 'F'}
@@ -58,11 +68,16 @@ _TSLOT_NOS = list(TSLOTS)
 
 @lru_cache(maxsize=None)
 def assign_thirds(qual_letters):
-    """진출한 8개 조 3위(조 라벨 튜플) → {R32경기no: 조라벨} 슬롯 배정.
-    각 3위는 그 슬롯의 후보 조에 속할 때만 배정(공식 제약). 증대경로 완전매칭으로
-    항상 유효 배정 존재(495조합 전수 확인). 결과 캐시(조합 ≤495)."""
+    """진출한 8개 조 3위(정렬된 조 라벨 튜플) → {R32경기no(int): 조라벨} 슬롯 배정.
+    FIFA 공식 Annex C 표(495조합 전수)를 그대로 사용. 표에 없는 경우(이론상 없음)만
+    후보-조 제약 완전매칭으로 폴백. 결과 캐시(조합 ≤495)."""
+    key = ''.join(qual_letters)          # qual_letters는 정렬된 튜플 → 키와 일치
+    official = THIRD_ALLOC.get(key)
+    if official:
+        return {int(mno): g for mno, g in official.items()}
+    # ── 폴백: 후보-조 제약 증대경로 완전매칭 (공식표 미존재 시) ──
     qual = set(qual_letters)
-    mg = {}                              # 조라벨 -> 슬롯no
+    mg = {}
     def aug(slot, seen):
         for g in sorted(set(TSLOTS[slot]) & qual):
             if g in seen:
@@ -75,7 +90,7 @@ def assign_thirds(qual_letters):
     for slot in _TSLOT_NOS:
         aug(slot, set())
     res = {slot: g for g, slot in mg.items()}
-    if len(res) < 8:                     # 안전장치(이론상 도달 안 함)
+    if len(res) < 8:
         ls = [s for s in _TSLOT_NOS if s not in res]
         lg = [g for g in qual if g not in mg]
         for s, g in zip(ls, lg):
