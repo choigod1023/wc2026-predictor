@@ -21,7 +21,7 @@ import numpy as np
 import pandas as pd
 
 from models import REGISTRY, SIM_MODELS, HDA
-from sim import simulate, recover_groups
+from sim import simulate, recover_groups, split_wc
 
 N_SIM = 10000
 HOME_ADV = 100
@@ -73,8 +73,7 @@ json.dump(leaderboard, open('data/model_leaderboard.json', 'w'),
 # ── 모델별 우승/단계 시뮬레이션 ───────────────────────────────
 ratings = pd.read_csv('data/elo_final.csv', index_col=0)['elo'].to_dict()
 results = pd.read_csv('data/results.csv')
-wc = results[(results['date'] >= '2026-06-11') &
-             (results['tournament'] == 'FIFA World Cup')].copy()
+wc, _ko = split_wc(results)          # 조별 72경기만(녹아웃 추가돼도 조 복원 안 깨짐)
 groups = recover_groups(wc)
 
 # 전체기간 재학습용

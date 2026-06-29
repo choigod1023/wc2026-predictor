@@ -121,6 +121,16 @@ def recover_groups(wc_df):
     return groups
 
 
+def split_wc(df):
+    """WC 경기를 (조별리그 72경기, 녹아웃 경기) 로 분리.
+    스테이지 컬럼이 없고, FIFA 일정상 조별 72경기가 모두 녹아웃보다 먼저 열리므로
+    '날짜순 앞 72경기 = 조별리그'로 간주(데이터 의존 낮고 견고). 녹아웃 경기가
+    추가돼도 recover_groups(조 안 경기만)·조별 산출이 깨지지 않게 한다."""
+    wc = df[(df['date'] >= '2026-06-11') &
+            (df['tournament'] == 'FIFA World Cup')].sort_values('date')
+    return wc.head(72), wc.iloc[72:]
+
+
 def simulate(match_p, groups, ratings, n_sim=20000, seed=42):
     """
     match_p : dict {(home, away): (pH, pD, pA)}
@@ -290,20 +300,23 @@ def _rank_group(teams, games, ratings):
 
 
 def simulate_scores(fixtures, groups, ratings, params, n_sim=20000, seed=42,
-                    played=None):
+                    played=None, ko_played=None):
     """
     fixtures : [(home, away, neutral), ...] 조별리그 72경기 (일정·중립여부)
     groups   : list[list[str]]
     ratings  : dict team -> elo
     params   : score_model 계수 dict
     played   : {(home, away): (home_score, away_score)} 이미 끝난 조별 경기.
-               주어지면 그 경기는 실제 스코어로 '고정'하고 남은 경기만 추첨한다
-               → 대회가 진행될수록 예측이 실제 결과를 반영해 변동.
+               주어지면 그 경기는 실제 스코어로 '고정'하고 남은 경기만 추첨한다.
+    ko_played: {(home, away): (home_score, away_score)} 이미 끝난 녹아웃 경기.
+               해당 대진의 진출팀을 '고정'하고 남은 녹아웃만 시뮬 → 토너먼트가
+               진행될수록 우승/단계 확률이 실제 결과를 반영해 변동.
     스코어라인을 추첨해 2026 룰로 조 순위·녹아웃을 진행. 반환 형식은 simulate 와 동일.
     """
     rng = np.random.default_rng(seed)
     lam = make_lambda(params)
     played = played or {}
+    ko_played = ko_played or {}
 
     def ko(a, b):
         """녹아웃 한 경기: 스코어 추첨 → 연장 → 승부차기. 승자 반환."""
@@ -318,6 +331,29 @@ def simulate_scores(fixtures, groups, ratings, params, n_sim=20000, seed=42,
         # 승부차기: Elo를 절반 스케일로 반영(거의 동전던지기)
         p = 1 / (1 + 10 ** (-(ratings[a] - ratings[b]) / 800))
         return a if rng.random() < p else b
+
+    # ── 실제 녹아웃 결과 → 진출팀(advancer) 사전계산 ──────────────
+    # 점수가 갈리면 그 팀, 무승부(승부차기)면 '다음 라운드에 또 등장하는 팀'으로 추론.
+    # (최신 라운드 무승부 등 추론 불가 시 None → 그 경기만 시뮬)
+    _appear = defaultdict(int)
+    for (h, a) in ko_played:
+        _appear[h] += 1
+        _appear[a] += 1
+    ko_adv = {}
+    for (h, a), (hs, as_) in ko_played.items():
+        if hs > as_:
+            adv = h
+        elif as_ > hs:
+            adv = a
+        else:
+            ah, aa = _appear[h] > 1, _appear[a] > 1
+            adv = h if (ah and not aa) else a if (aa and not ah) else None
+        ko_adv[frozenset((h, a))] = adv
+
+    def play(A, B):
+        """녹아웃 한 경기: 실제 결과가 있으면 진출팀 고정, 없으면 시뮬."""
+        adv = ko_adv.get(frozenset((A, B)))
+        return adv if adv is not None else ko(A, B)
 
     # 그룹별 경기 인덱스 + 공식 조 라벨(A~L) 복원(앵커 시드팀 기준)
     group_of = {}
@@ -372,10 +408,10 @@ def simulate_scores(fixtures, groups, ratings, params, n_sim=20000, seed=42,
         winner = {}
         for no in R32_NOS:
             h, a = BRACKET[no]
-            winner[no] = ko(slot_team(h, no), slot_team(a, no))
+            winner[no] = play(slot_team(h, no), slot_team(a, no))
         for no in R16_NOS + QF_NOS + SF_NOS + [FINAL_NO]:
             (_, vh), (_, va) = BRACKET[no]           # 앞 라운드 승자끼리
-            winner[no] = ko(winner[vh], winner[va])
+            winner[no] = play(winner[vh], winner[va])
 
         for t in qualified:
             reach[32][t] += 1
