@@ -1,5 +1,16 @@
 [
  {
+  "date": "2026-06-30",
+  "moves": [
+   {
+    "team": "Brazil",
+    "dir": "up",
+    "delta": 0.0456,
+    "other": true
+   }
+  ]
+ },
+ {
   "date": "2026-06-29",
   "moves": [
    {
