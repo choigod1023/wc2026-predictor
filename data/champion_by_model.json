@@ -194,11 +194,11 @@
         "p": 0.0028
       },
       {
-        "team": "Austria",
+        "team": "Paraguay",
         "p": 0.0027
       },
       {
-        "team": "Paraguay",
+        "team": "Austria",
         "p": 0.0027
       }
     ]
@@ -292,15 +292,15 @@
         "p": 0.0028
       },
       {
-        "team": "Senegal",
-        "p": 0.0027
-      },
-      {
         "team": "Iran",
         "p": 0.0027
       },
       {
-        "team": "Canada",
+        "team": "Senegal",
+        "p": 0.0027
+      },
+      {
+        "team": "Paraguay",
         "p": 0.0023
       }
     ]
