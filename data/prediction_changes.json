@@ -1,5 +1,34 @@
 [
  {
+  "date": "2026-07-05",
+  "moves": [
+   {
+    "team": "France",
+    "dir": "up",
+    "delta": 0.0472,
+    "other": true
+   },
+   {
+    "team": "Morocco",
+    "dir": "up",
+    "delta": 0.0343,
+    "other": true
+   },
+   {
+    "team": "Spain",
+    "dir": "down",
+    "delta": -0.0214,
+    "other": true
+   },
+   {
+    "team": "Netherlands",
+    "dir": "down",
+    "delta": -0.02,
+    "other": true
+   }
+  ]
+ },
+ {
   "date": "2026-07-03",
   "moves": [
    {
