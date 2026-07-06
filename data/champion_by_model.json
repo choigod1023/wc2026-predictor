@@ -5,67 +5,67 @@
     "champions": [
       {
         "team": "Argentina",
-        "p": 0.2251
+        "p": 0.2252
       },
       {
         "team": "Spain",
-        "p": 0.2098
+        "p": 0.2092
       },
       {
         "team": "France",
-        "p": 0.187
+        "p": 0.1873
       },
       {
         "team": "England",
-        "p": 0.0936
+        "p": 0.0941
       },
       {
         "team": "Colombia",
-        "p": 0.0474
-      },
-      {
-        "team": "Portugal",
-        "p": 0.0322
-      },
-      {
-        "team": "Morocco",
-        "p": 0.031
-      },
-      {
-        "team": "Norway",
-        "p": 0.0291
+        "p": 0.0472
       },
       {
         "team": "Brazil",
-        "p": 0.028
+        "p": 0.0341
+      },
+      {
+        "team": "Morocco",
+        "p": 0.0332
+      },
+      {
+        "team": "Portugal",
+        "p": 0.0317
       },
       {
         "team": "Netherlands",
-        "p": 0.0269
+        "p": 0.0259
+      },
+      {
+        "team": "Norway",
+        "p": 0.0217
       },
       {
         "team": "Switzerland",
-        "p": 0.0189
+        "p": 0.0185
       },
       {
         "team": "Mexico",
-        "p": 0.0151
+        "p": 0.0149
       },
       {
         "team": "Belgium",
-        "p": 0.014
+        "p": 0.0142
       },
       {
         "team": "Germany",
-        "p": 0.0086
+        "p": 0.0092
       },
       {
         "team": "Japan",
-        "p": 0.0061
+        "p": 0.006
       },
       {
         "team": "Ecuador",
-        "p": 0.0053
+        "p": 0.0056
       },
       {
         "team": "Croatia",
@@ -73,31 +73,31 @@
       },
       {
         "team": "Australia",
+        "p": 0.0021
+      },
+      {
+        "team": "Turkey",
         "p": 0.002
+      },
+      {
+        "team": "Uruguay",
+        "p": 0.0019
       },
       {
         "team": "Iran",
         "p": 0.0019
       },
       {
-        "team": "Turkey",
-        "p": 0.0019
-      },
-      {
-        "team": "Uruguay",
-        "p": 0.0018
-      },
-      {
         "team": "United States",
-        "p": 0.0018
+        "p": 0.0017
       },
       {
         "team": "Austria",
         "p": 0.0015
       },
       {
-        "team": "Senegal",
-        "p": 0.001
+        "team": "Canada",
+        "p": 0.0009
       }
     ]
   },
@@ -107,67 +107,67 @@
     "champions": [
       {
         "team": "Argentina",
-        "p": 0.2253
+        "p": 0.2259
       },
       {
         "team": "Spain",
-        "p": 0.2105
+        "p": 0.21
       },
       {
         "team": "France",
-        "p": 0.1873
+        "p": 0.1868
       },
       {
         "team": "England",
-        "p": 0.0936
+        "p": 0.0943
       },
       {
         "team": "Colombia",
-        "p": 0.046
-      },
-      {
-        "team": "Portugal",
-        "p": 0.0325
-      },
-      {
-        "team": "Morocco",
-        "p": 0.0303
-      },
-      {
-        "team": "Norway",
-        "p": 0.0294
+        "p": 0.0457
       },
       {
         "team": "Brazil",
-        "p": 0.0285
+        "p": 0.0342
+      },
+      {
+        "team": "Morocco",
+        "p": 0.0331
+      },
+      {
+        "team": "Portugal",
+        "p": 0.0319
       },
       {
         "team": "Netherlands",
-        "p": 0.0263
+        "p": 0.0254
+      },
+      {
+        "team": "Norway",
+        "p": 0.0225
       },
       {
         "team": "Switzerland",
-        "p": 0.0186
+        "p": 0.0184
       },
       {
         "team": "Mexico",
-        "p": 0.0156
+        "p": 0.0152
       },
       {
         "team": "Belgium",
-        "p": 0.014
+        "p": 0.0141
       },
       {
         "team": "Germany",
-        "p": 0.0089
+        "p": 0.009
       },
       {
         "team": "Japan",
-        "p": 0.0056
+        "p": 0.0055
       },
       {
         "team": "Ecuador",
-        "p": 0.0053
+        "p": 0.0055
       },
       {
         "team": "Croatia",
@@ -175,27 +175,27 @@
       },
       {
         "team": "Iran",
-        "p": 0.0022
-      },
-      {
-        "team": "United States",
         "p": 0.0021
       },
       {
-        "team": "Uruguay",
-        "p": 0.0019
-      },
-      {
-        "team": "Australia",
-        "p": 0.0018
+        "team": "United States",
+        "p": 0.002
       },
       {
         "team": "Turkey",
+        "p": 0.002
+      },
+      {
+        "team": "Australia",
+        "p": 0.0019
+      },
+      {
+        "team": "Uruguay",
         "p": 0.0018
       },
       {
         "team": "Austria",
-        "p": 0.0014
+        "p": 0.0015
       },
       {
         "team": "Senegal",
@@ -209,63 +209,63 @@
     "champions": [
       {
         "team": "Argentina",
-        "p": 0.2194
+        "p": 0.2198
       },
       {
         "team": "Spain",
-        "p": 0.2104
+        "p": 0.2094
       },
       {
         "team": "France",
-        "p": 0.1838
+        "p": 0.1847
       },
       {
         "team": "England",
-        "p": 0.0938
+        "p": 0.0939
       },
       {
         "team": "Colombia",
-        "p": 0.0467
-      },
-      {
-        "team": "Portugal",
-        "p": 0.0325
-      },
-      {
-        "team": "Norway",
-        "p": 0.0301
-      },
-      {
-        "team": "Morocco",
-        "p": 0.0297
+        "p": 0.0466
       },
       {
         "team": "Brazil",
-        "p": 0.0295
+        "p": 0.0353
+      },
+      {
+        "team": "Portugal",
+        "p": 0.0317
+      },
+      {
+        "team": "Morocco",
+        "p": 0.0317
       },
       {
         "team": "Netherlands",
-        "p": 0.027
+        "p": 0.0269
+      },
+      {
+        "team": "Norway",
+        "p": 0.0229
       },
       {
         "team": "Switzerland",
-        "p": 0.0191
+        "p": 0.0192
       },
       {
         "team": "Mexico",
-        "p": 0.0168
+        "p": 0.0165
       },
       {
         "team": "Belgium",
-        "p": 0.0153
+        "p": 0.0152
       },
       {
         "team": "Germany",
-        "p": 0.0093
+        "p": 0.0096
       },
       {
         "team": "Japan",
-        "p": 0.0061
+        "p": 0.0063
       },
       {
         "team": "Ecuador",
@@ -273,35 +273,35 @@
       },
       {
         "team": "Croatia",
-        "p": 0.0047
+        "p": 0.0046
       },
       {
         "team": "Uruguay",
-        "p": 0.0024
+        "p": 0.0026
       },
       {
         "team": "Iran",
         "p": 0.0023
       },
       {
-        "team": "Turkey",
-        "p": 0.0021
+        "team": "Australia",
+        "p": 0.002
       },
       {
-        "team": "Australia",
-        "p": 0.0019
+        "team": "Turkey",
+        "p": 0.002
       },
       {
         "team": "Austria",
-        "p": 0.0017
+        "p": 0.0018
       },
       {
         "team": "United States",
-        "p": 0.0016
+        "p": 0.0015
       },
       {
         "team": "Egypt",
-        "p": 0.0014
+        "p": 0.0013
       }
     ]
   }

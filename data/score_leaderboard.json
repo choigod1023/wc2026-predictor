@@ -2,20 +2,20 @@
   {
     "name": "Dixon-Coles",
     "short": "dixon_coles",
-    "score_loglik": -2.8864,
+    "score_loglik": -2.8862,
     "ou25_brier": 0.246,
     "best": true
   },
   {
     "name": "독립 포아송",
     "short": "poisson",
-    "score_loglik": -2.8873,
+    "score_loglik": -2.887,
     "ou25_brier": 0.246
   },
   {
     "name": "기준선·평균득점",
     "short": "flat",
-    "score_loglik": -3.2507,
-    "ou25_brier": 0.2514
+    "score_loglik": -3.2504,
+    "ou25_brier": 0.2513
   }
 ]
