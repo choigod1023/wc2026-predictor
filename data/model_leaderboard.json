@@ -4,7 +4,7 @@
     "short": "elo_logit_abs",
     "brier": 0.5051,
     "logloss": 0.8588,
-    "accuracy": 0.6029,
+    "accuracy": 0.6027,
     "best": true
   },
   {
@@ -12,27 +12,27 @@
     "short": "elo_logit",
     "brier": 0.5054,
     "logloss": 0.8594,
-    "accuracy": 0.6029
+    "accuracy": 0.6027
   },
   {
     "name": "Davidson 무승부모델",
     "short": "davidson",
-    "brier": 0.5066,
-    "logloss": 0.8649,
-    "accuracy": 0.6064
+    "brier": 0.5065,
+    "logloss": 0.8648,
+    "accuracy": 0.6068
   },
   {
     "name": "기준선·비율(base-rate)",
     "short": "base_rate",
-    "brier": 0.6383,
-    "logloss": 1.0572,
-    "accuracy": 0.4674
+    "brier": 0.6385,
+    "logloss": 1.0574,
+    "accuracy": 0.4669
   },
   {
     "name": "기준선·균등(1/3)",
     "short": "uniform",
     "brier": 0.6667,
     "logloss": 1.0986,
-    "accuracy": 0.4674
+    "accuracy": 0.4669
   }
 ]
