@@ -1,5 +1,36 @@
 [
  {
+  "date": "2026-07-10",
+  "moves": [
+   {
+    "team": "France",
+    "dir": "up",
+    "delta": 0.1196,
+    "opp": "Morocco",
+    "sf": 2,
+    "sa": 0,
+    "result": "win",
+    "upset": false
+   },
+   {
+    "team": "Spain",
+    "dir": "down",
+    "delta": -0.0469,
+    "other": true
+   },
+   {
+    "team": "Morocco",
+    "dir": "down",
+    "delta": -0.0384,
+    "opp": "France",
+    "sf": 0,
+    "sa": 2,
+    "result": "loss",
+    "upset": false
+   }
+  ]
+ },
+ {
   "date": "2026-07-08",
   "moves": [
    {

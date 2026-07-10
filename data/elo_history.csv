@@ -43315,8 +43315,8 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2019-11-19,Saudi Arabia,Paraguay,Friendly,False,-65.02025202825939,D
 2019-11-19,Hong Kong,Cambodia,FIFA World Cup qualification,False,381.81685165833983,H
 2019-11-19,Brazil,South Korea,Friendly,True,282.6652283983974,H
-2019-11-19,Yemen,Singapore,FIFA World Cup qualification,True,88.17232265237863,A
 2019-11-19,Lebanon,North Korea,FIFA World Cup qualification,False,141.40345889666446,D
+2019-11-19,Yemen,Singapore,FIFA World Cup qualification,True,88.17232265237863,A
 2019-11-19,Afghanistan,Qatar,FIFA World Cup qualification,True,-505.77070401560536,A
 2019-11-19,Oman,India,FIFA World Cup qualification,False,360.94162848042424,H
 2019-11-19,Myanmar,Mongolia,FIFA World Cup qualification,False,258.2300567793677,H
@@ -43326,7 +43326,7 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2019-11-19,Turkmenistan,Sri Lanka,FIFA World Cup qualification,False,557.3931373788878,H
 2019-11-19,Uzbekistan,Palestine,FIFA World Cup qualification,False,251.55435534101366,H
 2019-11-19,Puerto Rico,Anguilla,CONCACAF Nations League,False,338.5242181476093,H
-2019-11-19,Netherlands,Estonia,UEFA Euro qualification,False,635.9359571833659,H
+2019-11-19,Wales,Hungary,UEFA Euro qualification,False,235.76709948196276,H
 2019-11-19,Barbados,Cayman Islands,CONCACAF Nations League,False,197.38251643810167,H
 2019-11-19,United States Virgin Islands,Saint Martin,CONCACAF Nations League,False,-29.07903719782962,A
 2019-11-19,Burundi,Morocco,African Cup of Nations qualification,False,-241.96610045162902,A
@@ -43336,7 +43336,7 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2019-11-19,Libya,Tanzania,African Cup of Nations qualification,True,111.4960743537888,H
 2019-11-19,Ethiopia,Ivory Coast,African Cup of Nations qualification,False,-277.8574588955919,H
 2019-11-19,Germany,Northern Ireland,UEFA Euro qualification,False,365.0050168845728,H
-2019-11-19,Wales,Hungary,UEFA Euro qualification,False,235.76709948196276,H
+2019-11-19,Netherlands,Estonia,UEFA Euro qualification,False,635.9359571833659,H
 2019-11-19,Slovakia,Azerbaijan,UEFA Euro qualification,False,446.9059497408907,H
 2019-11-19,North Macedonia,Israel,UEFA Euro qualification,False,86.76198703893374,H
 2019-11-19,Japan,Venezuela,Kirin Challenge Cup,False,116.91781999237696,A
@@ -47949,17 +47949,17 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2024-11-16,Germany,Bosnia and Herzegovina,UEFA Nations League,False,599.4796932455022,H
 2024-11-16,Azerbaijan,Estonia,UEFA Nations League,False,146.489742003836,D
 2024-11-16,Guinea,DR Congo,African Cup of Nations qualification,True,-108.74446572368447,H
-2024-11-17,Thailand,Laos,Friendly,False,759.5914699116705,D
 2024-11-17,Togo,Equatorial Guinea,African Cup of Nations qualification,False,-51.09454406358759,H
+2024-11-17,Thailand,Laos,Friendly,False,759.5914699116705,D
 2024-11-17,El Salvador,Montserrat,CONCACAF Nations League,False,411.58486829288086,H
 2024-11-17,Papua New Guinea,Solomon Islands,FIFA World Cup qualification,False,34.60884842249334,A
 2024-11-17,Algeria,Liberia,African Cup of Nations qualification,False,475.6469424522211,H
 2024-11-17,Fiji,New Caledonia,FIFA World Cup qualification,True,-49.894131650608415,D
 2024-11-17,Saint Vincent and the Grenadines,Bonaire,CONCACAF Nations League,True,94.54295869317457,H
-2024-11-17,Finland,Greece,UEFA Nations League,False,-111.7124814271051,A
+2024-11-17,Norway,Kazakhstan,UEFA Nations League,False,430.0881930469186,H
 2024-11-17,North Macedonia,Faroe Islands,UEFA Nations League,False,441.9729577271105,H
 2024-11-17,Austria,Slovenia,UEFA Nations League,False,255.01857334975898,D
-2024-11-17,Norway,Kazakhstan,UEFA Nations League,False,430.0881930469186,H
+2024-11-17,Finland,Greece,UEFA Nations League,False,-111.7124814271051,A
 2024-11-17,England,Republic of Ireland,UEFA Nations League,False,487.97347024411056,H
 2024-11-17,Italy,France,UEFA Nations League,False,12.684767126298539,A
 2024-11-17,Israel,Belgium,UEFA Nations League,True,-347.8616039645615,H
@@ -48894,14 +48894,14 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2025-11-13,France,Ukraine,FIFA World Cup qualification,False,343.5286152458523,H
 2025-11-13,North Macedonia,Latvia,Friendly,False,434.4475711748696,D
 2025-11-14,Tunisia,Jordan,Friendly,False,117.37747977307322,H
-2025-11-14,Uzbekistan,Egypt,Al Ain International Cup,True,37.52248792549085,H
+2025-11-14,Gibraltar,Montenegro,FIFA World Cup qualification,False,-270.33652223129866,A
 2025-11-14,Croatia,Faroe Islands,FIFA World Cup qualification,False,660.0261460663787,H
 2025-11-14,Poland,Netherlands,FIFA World Cup qualification,False,-138.4395101452585,D
 2025-11-14,Finland,Malta,FIFA World Cup qualification,False,409.3911908875225,A
 2025-11-14,Slovakia,Northern Ireland,FIFA World Cup qualification,False,193.49332473051732,H
 2025-11-14,Luxembourg,Germany,FIFA World Cup qualification,False,-400.37351194517987,A
 2025-11-14,Saudi Arabia,Ivory Coast,Friendly,False,81.47923199028014,H
-2025-11-14,Gibraltar,Montenegro,FIFA World Cup qualification,False,-270.33652223129866,A
+2025-11-14,Uzbekistan,Egypt,Al Ain International Cup,True,37.52248792549085,H
 2025-11-14,Burkina Faso,Niger,Friendly,True,131.5503435459177,H
 2025-11-14,Uganda,Chad,Friendly,True,309.83492958073725,H
 2025-11-14,Comoros,Namibia,Friendly,False,136.18777830613612,H
@@ -48909,8 +48909,8 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2025-11-14,Morocco,Mozambique,Friendly,False,504.5498219275694,H
 2025-11-14,South Korea,Bolivia,Friendly,False,230.9213910295855,H
 2025-11-14,Australia,Venezuela,Friendly,True,123.08435977882141,A
-2025-11-14,Japan,Ghana,Kirin Cup,False,421.2913263490823,H
 2025-11-14,Angola,Argentina,Friendly,False,-482.15285289869075,A
+2025-11-14,Japan,Ghana,Kirin Cup,False,421.2913263490823,H
 2025-11-15,Bosnia and Herzegovina,Romania,FIFA World Cup qualification,False,-60.767211084569226,H
 2025-11-15,Liechtenstein,Wales,FIFA World Cup qualification,False,-648.7272244501896,A
 2025-11-15,Kazakhstan,Belgium,FIFA World Cup qualification,False,-353.3155578898354,D
@@ -48975,8 +48975,8 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2025-11-18,Kosovo,Switzerland,FIFA World Cup qualification,False,-120.8181452344977,D
 2025-11-18,Austria,Bosnia and Herzegovina,FIFA World Cup qualification,False,386.40877000871797,D
 2025-11-18,Panama,El Salvador,FIFA World Cup qualification,False,481.8997839458241,H
+2025-11-18,Wales,North Macedonia,FIFA World Cup qualification,False,176.72590781706594,H
 2025-11-18,Haiti,Nicaragua,FIFA World Cup qualification,True,167.30695811805504,H
-2025-11-18,Belgium,Liechtenstein,FIFA World Cup qualification,False,1025.5985104940623,H
 2025-11-18,Dominican Republic,Martinique,CONCACAF Series,False,86.93737916237819,D
 2025-11-18,Saint Kitts and Nevis,Belize,CONCACAF Series,False,101.3598733403046,A
 2025-11-18,Antigua and Barbuda,Guyana,CONCACAF Series,False,-202.43324241518872,A
@@ -48988,9 +48988,8 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2025-11-18,Costa Rica,Honduras,FIFA World Cup qualification,False,183.01070153155683,D
 2025-11-18,Romania,San Marino,FIFA World Cup qualification,False,893.4087258271408,H
 2025-11-18,Ecuador,New Zealand,Friendly,True,248.6849596523257,H
-2025-11-18,Wales,North Macedonia,FIFA World Cup qualification,False,176.72590781706594,H
+2025-11-18,Belgium,Liechtenstein,FIFA World Cup qualification,False,1025.5985104940623,H
 2025-11-18,Colombia,Australia,Friendly,True,162.42744895698183,H
-2025-11-18,Cyprus,Estonia,Friendly,False,78.24104453930954,A
 2025-11-18,Angola,Zambia,Friendly,False,139.31069981387168,H
 2025-11-18,Morocco,Uganda,Friendly,False,472.3451939644449,H
 2025-11-18,Oman,Ivory Coast,Friendly,False,-1.7565259527477792,A
@@ -49001,8 +49000,9 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2025-11-18,Japan,Bolivia,Kirin Cup,False,296.99774219385813,H
 2025-11-18,Mali,Jordan,Friendly,True,-7.486522330422758,H
 2025-11-18,Kuwait,Gambia,Friendly,True,-100.18449427290693,D
-2025-11-18,Maldives,Philippines,AFC Asian Cup qualification,False,-149.5347085366427,A
 2025-11-18,Lesotho,Malawi,Friendly,True,-23.95464220272038,A
+2025-11-18,Maldives,Philippines,AFC Asian Cup qualification,False,-149.5347085366427,A
+2025-11-18,Cyprus,Estonia,Friendly,False,78.24104453930954,A
 2025-11-18,Yemen,Bhutan,AFC Asian Cup qualification,True,415.43601901300576,H
 2025-11-18,Brunei,Lebanon,AFC Asian Cup qualification,False,-442.0561922397934,A
 2025-11-18,Bangladesh,India,AFC Asian Cup qualification,False,-63.53097124071496,H
@@ -49022,10 +49022,10 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2025-11-25,Mauritania,Kuwait,Arab Cup qualification,True,8.583600566213363,A
 2025-11-25,Syria,South Sudan,Arab Cup qualification,True,304.0148769251857,H
 2025-11-25,Palestine,Libya,Arab Cup qualification,True,38.88116977348295,D
-2025-11-26,Oman,Somalia,Arab Cup qualification,True,549.6256098703893,D
-2025-11-26,Bahrain,Djibouti,Arab Cup qualification,True,457.6137272277101,H
 2025-11-26,Sudan,Lebanon,Arab Cup qualification,True,27.218877544220277,H
 2025-11-26,Comoros,Yemen,Arab Cup qualification,True,206.3182461916233,D
+2025-11-26,Oman,Somalia,Arab Cup qualification,True,549.6256098703893,D
+2025-11-26,Bahrain,Djibouti,Arab Cup qualification,True,457.6137272277101,H
 2025-12-01,Tunisia,Syria,Arab Cup,True,175.7318907338281,A
 2025-12-01,Qatar,Palestine,Arab Cup,False,146.02693416019997,A
 2025-12-02,Morocco,Comoros,Arab Cup,True,433.0542192900216,H
@@ -49046,10 +49046,10 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2025-12-07,Syria,Palestine,Arab Cup,True,17.190325460625218,D
 2025-12-08,Morocco,Saudi Arabia,Arab Cup,True,206.03818924670577,H
 2025-12-08,Oman,Comoros,Arab Cup,True,100.78508760985915,H
-2025-12-09,Bahrain,Sudan,Arab Cup,True,20.563530062633163,H
 2025-12-09,Algeria,Iraq,Arab Cup,True,79.5558392342889,H
-2025-12-09,Egypt,Jordan,Arab Cup,True,4.832238131898521,A
+2025-12-09,Bahrain,Sudan,Arab Cup,True,20.563530062633163,H
 2025-12-09,United Arab Emirates,Kuwait,Arab Cup,True,179.69981123995422,H
+2025-12-09,Egypt,Jordan,Arab Cup,True,4.832238131898521,A
 2025-12-11,Morocco,Syria,Arab Cup,True,313.96108206304916,H
 2025-12-11,Palestine,Saudi Arabia,Arab Cup,True,-109.59214070289158,A
 2025-12-12,Jordan,Iraq,Arab Cup,True,36.192970595689985,H
@@ -49061,8 +49061,8 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2025-12-22,Mali,Zambia,African Cup of Nations,True,179.7087291467633,D
 2025-12-22,South Africa,Angola,African Cup of Nations,True,78.1172533821823,H
 2025-12-22,Egypt,Zimbabwe,African Cup of Nations,True,264.2921777889419,H
-2025-12-23,Senegal,Botswana,African Cup of Nations,True,478.0097867063578,H
 2025-12-23,DR Congo,Benin,African Cup of Nations,True,177.19535415619725,H
+2025-12-23,Senegal,Botswana,African Cup of Nations,True,478.0097867063578,H
 2025-12-23,Nigeria,Tanzania,African Cup of Nations,True,319.9704484278209,H
 2025-12-23,Tunisia,Uganda,African Cup of Nations,True,207.4446496672956,H
 2025-12-24,Burkina Faso,Equatorial Guinea,African Cup of Nations,True,198.03480242086926,H
@@ -49073,26 +49073,26 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2025-12-26,Zambia,Comoros,African Cup of Nations,True,92.90493454313855,D
 2025-12-26,Morocco,Mali,African Cup of Nations,False,335.3322363912073,D
 2025-12-26,Angola,Zimbabwe,African Cup of Nations,True,139.107554270636,D
-2025-12-27,Senegal,DR Congo,African Cup of Nations,True,175.20611295894537,D
 2025-12-27,Benin,Botswana,African Cup of Nations,True,109.60485125106652,H
+2025-12-27,Senegal,DR Congo,African Cup of Nations,True,175.20611295894537,D
 2025-12-27,Uganda,Tanzania,African Cup of Nations,True,117.03595138772698,D
 2025-12-27,Nigeria,Tunisia,African Cup of Nations,True,-25.70515450781363,H
+2025-12-28,Ivory Coast,Cameroon,African Cup of Nations,True,55.96021534802776,D
+2025-12-28,Gabon,Mozambique,African Cup of Nations,True,62.980942927820706,A
 2025-12-28,Equatorial Guinea,Sudan,African Cup of Nations,True,1.0165730499049914,A
 2025-12-28,Algeria,Burkina Faso,African Cup of Nations,True,152.50745460839653,H
-2025-12-28,Gabon,Mozambique,African Cup of Nations,True,62.980942927820706,A
-2025-12-28,Ivory Coast,Cameroon,African Cup of Nations,True,55.96021534802776,D
 2025-12-29,Morocco,Zambia,African Cup of Nations,False,479.12834405701096,H
 2025-12-29,Comoros,Mali,African Cup of Nations,True,-260.9693267363964,D
 2025-12-29,Angola,Egypt,African Cup of Nations,True,-175.74637619159284,D
 2025-12-29,Zimbabwe,South Africa,African Cup of Nations,True,-223.53248351221464,A
-2025-12-30,Botswana,DR Congo,African Cup of Nations,True,-342.30448520055165,A
-2025-12-30,Benin,Senegal,African Cup of Nations,True,-349.9019485642925,A
 2025-12-30,Uganda,Nigeria,African Cup of Nations,True,-251.58016612785104,A
 2025-12-30,Tanzania,Tunisia,African Cup of Nations,True,-324.3953295603335,D
+2025-12-30,Benin,Senegal,African Cup of Nations,True,-349.9019485642925,A
+2025-12-30,Botswana,DR Congo,African Cup of Nations,True,-342.30448520055165,A
+2025-12-31,Mozambique,Cameroon,African Cup of Nations,True,-154.87452892271517,A
+2025-12-31,Gabon,Ivory Coast,African Cup of Nations,True,-198.835100664817,A
 2025-12-31,Equatorial Guinea,Algeria,African Cup of Nations,True,-414.52843006695207,A
 2025-12-31,Sudan,Burkina Faso,African Cup of Nations,True,-183.53001051451565,A
-2025-12-31,Gabon,Ivory Coast,African Cup of Nations,True,-198.835100664817,A
-2025-12-31,Mozambique,Cameroon,African Cup of Nations,True,-154.87452892271517,A
 2026-01-03,Senegal,Sudan,African Cup of Nations,True,442.29088198307045,H
 2026-01-03,Mali,Tunisia,African Cup of Nations,True,-11.238144621769152,D
 2026-01-04,Morocco,Tanzania,African Cup of Nations,False,595.6588315824238,H
@@ -49105,8 +49105,8 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2026-01-09,Morocco,Cameroon,African Cup of Nations,False,316.25589068421414,H
 2026-01-10,Algeria,Nigeria,African Cup of Nations,True,76.56032284739354,A
 2026-01-10,Egypt,Ivory Coast,African Cup of Nations,True,-28.544916717881506,H
-2026-01-14,Morocco,Nigeria,African Cup of Nations,False,197.75609336381308,D
 2026-01-14,Senegal,Egypt,African Cup of Nations,True,152.76644049224842,H
+2026-01-14,Morocco,Nigeria,African Cup of Nations,False,197.75609336381308,D
 2026-01-17,Egypt,Nigeria,African Cup of Nations,True,-98.77384217301415,D
 2026-01-18,Morocco,Senegal,African Cup of Nations,False,88.6950375347144,H
 2026-01-18,Bolivia,Panama,Friendly,False,-8.231351572090716,D
@@ -49121,7 +49121,7 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2026-03-25,United States Virgin Islands,American Samoa,FIFA Series,True,-24.388565623657314,H
 2026-03-25,Bermuda,DR Congo,Friendly,True,-439.17690741337947,A
 2026-03-25,Equatorial Guinea,Kyrgyzstan,Friendly,True,-35.73248238901101,H
-2026-03-26,Turkey,Romania,FIFA World Cup qualification,False,331.5076574255479,H
+2026-03-26,Czech Republic,Republic of Ireland,FIFA World Cup qualification,False,136.1238746136903,D
 2026-03-26,Cayman Islands,British Virgin Islands,CONCACAF Series,False,160.40479490346013,D
 2026-03-26,Bahamas,Anguilla,CONCACAF Series,True,90.73200027060318,A
 2026-03-26,Bonaire,Saint Vincent and the Grenadines,CONCACAF Series,False,-101.68598501644578,H
@@ -49131,36 +49131,36 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2026-03-26,Tanzania,Liechtenstein,FIFA Series,True,445.06955293832857,A
 2026-03-26,Aruba,Macau,FIFA Series,True,350.6256196881876,H
 2026-03-26,Denmark,North Macedonia,FIFA World Cup qualification,False,356.767866188344,H
-2026-03-26,Czech Republic,Republic of Ireland,FIFA World Cup qualification,False,136.1238746136903,D
+2026-03-26,Turkey,Romania,FIFA World Cup qualification,False,331.5076574255479,H
 2026-03-26,Slovakia,Kosovo,FIFA World Cup qualification,False,95.69164952345818,A
-2026-03-26,Ukraine,Sweden,FIFA World Cup qualification,True,156.1495695365668,A
-2026-03-26,Poland,Albania,FIFA World Cup qualification,False,178.403364711324,H
-2026-03-26,Brazil,France,Friendly,True,-65.39157086161822,A
-2026-03-26,Colombia,Croatia,Friendly,True,97.02325538773925,A
-2026-03-26,Georgia,Israel,Friendly,False,127.40829109292895,D
-2026-03-26,Moldova,Lithuania,Friendly,False,80.09495718905077,A
 2026-03-26,Cyprus,Belarus,Friendly,False,-95.48160875610142,A
-2026-03-26,New Caledonia,Jamaica,FIFA World Cup qualification,True,-52.31795394504161,A
-2026-03-26,Bolivia,Suriname,FIFA World Cup qualification,True,161.29429935950589,H
-2026-03-26,Italy,Northern Ireland,FIFA World Cup qualification,False,350.26221324196285,H
+2026-03-26,Poland,Albania,FIFA World Cup qualification,False,178.403364711324,H
 2026-03-26,Wales,Bosnia and Herzegovina,FIFA World Cup qualification,False,248.5802099599439,D
+2026-03-26,Italy,Northern Ireland,FIFA World Cup qualification,False,350.26221324196285,H
+2026-03-26,Bolivia,Suriname,FIFA World Cup qualification,True,161.29429935950589,H
+2026-03-26,New Caledonia,Jamaica,FIFA World Cup qualification,True,-52.31795394504161,A
 2026-03-26,Vietnam,Bangladesh,Friendly,False,438.91816005337705,H
-2026-03-27,Indonesia,Saint Kitts and Nevis,FIFA Series,False,345.45243094349144,H
-2026-03-27,China,Curaçao,FIFA Series,True,-103.93721903512892,H
-2026-03-27,Australia,Cameroon,FIFA Series,False,279.5886678087493,H
-2026-03-27,Azerbaijan,Saint Lucia,FIFA Series,False,274.36446987109184,H
+2026-03-26,Moldova,Lithuania,Friendly,False,80.09495718905077,A
+2026-03-26,Georgia,Israel,Friendly,False,127.40829109292895,D
+2026-03-26,Colombia,Croatia,Friendly,True,97.02325538773925,A
+2026-03-26,Brazil,France,Friendly,True,-65.39157086161822,A
+2026-03-26,Ukraine,Sweden,FIFA World Cup qualification,True,156.1495695365668,A
 2026-03-27,Solomon Islands,Bulgaria,FIFA Series,True,-82.36638097764808,A
+2026-03-27,Azerbaijan,Saint Lucia,FIFA Series,False,274.36446987109184,H
+2026-03-27,Iran,Nigeria,Friendly,True,20.616493656784087,A
+2026-03-27,China,Curaçao,FIFA Series,True,-103.93721903512892,H
+2026-03-27,Indonesia,Saint Kitts and Nevis,FIFA Series,False,345.45243094349144,H
+2026-03-27,Australia,Cameroon,FIFA Series,False,279.5886678087493,H
 2026-03-27,Chile,Cape Verde,FIFA Series,True,129.45358296552058,H
 2026-03-27,Guyana,Dominica,CONCACAF Series,True,284.52324148576326,H
 2026-03-27,Kenya,Estonia,FIFA Series,True,44.49045290121967,D
 2026-03-27,Rwanda,Grenada,FIFA Series,False,204.51016381231761,H
 2026-03-27,Venezuela,Trinidad and Tobago,FIFA Series,True,250.91567633376644,H
 2026-03-27,Uzbekistan,Gabon,FIFA Series,False,409.81799901184786,H
-2026-03-27,Iran,Nigeria,Friendly,True,20.616493656784087,A
 2026-03-27,Belize,Sint Maarten,CONCACAF Series,True,18.935318814856146,A
 2026-03-27,New Zealand,Finland,FIFA Series,False,275.9661257002226,A
 2026-03-27,Costa Rica,Jordan,Friendly,True,-23.606935773098257,D
-2026-03-27,Saudi Arabia,Egypt,Friendly,False,30.79167284778964,A
+2026-03-27,South Africa,Panama,Friendly,False,-84.87227293535943,D
 2026-03-27,Russia,Nicaragua,Friendly,False,453.34775564405163,H
 2026-03-27,Algeria,Guatemala,Friendly,True,172.47809695174442,H
 2026-03-27,Argentina,Mauritania,Friendly,False,846.5196585793612,H
@@ -49173,7 +49173,7 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2026-03-27,Montenegro,Andorra,Friendly,False,451.01889910657815,H
 2026-03-27,Morocco,Ecuador,Friendly,True,-42.77145631731196,D
 2026-03-27,Netherlands,Norway,Friendly,False,161.40168272442975,H
-2026-03-27,South Africa,Panama,Friendly,False,-84.87227293535943,D
+2026-03-27,Saudi Arabia,Egypt,Friendly,False,30.79167284778964,A
 2026-03-27,Spain,Serbia,Friendly,False,505.9813484155068,H
 2026-03-27,Libya,Niger,"Morocco, Capital of African Football",True,7.833343639741315,D
 2026-03-28,Puerto Rico,United States Virgin Islands,FIFA Series,False,449.6603393937751,H
@@ -49208,11 +49208,11 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2026-03-30,Uzbekistan,Venezuela,FIFA Series,False,130.9817946462142,D
 2026-03-30,Gabon,Trinidad and Tobago,FIFA Series,True,-15.650548390002086,D
 2026-03-30,Grenada,Kenya,FIFA Series,True,-156.04263118135827,A
-2026-03-30,Germany,Ghana,Friendly,False,471.97233713493847,H
+2026-03-30,Azerbaijan,Sierra Leone,FIFA Series,False,42.75156827783712,D
 2026-03-30,Cape Verde,Finland,FIFA Series,True,45.095601216530895,D
 2026-03-30,Indonesia,Bulgaria,FIFA Series,False,52.76458266290547,A
 2026-03-30,Saint Kitts and Nevis,Solomon Islands,FIFA Series,True,-169.19894409022345,H
-2026-03-30,Azerbaijan,Sierra Leone,FIFA Series,False,42.75156827783712,D
+2026-03-30,Germany,Ghana,Friendly,False,471.97233713493847,H
 2026-03-30,Cyprus,Moldova,Friendly,False,137.17876946399974,H
 2026-03-30,New Zealand,Chile,FIFA Series,False,-2.2888614081796277,H
 2026-03-31,Russia,Mali,Friendly,False,236.27204879250553,D
@@ -49231,68 +49231,68 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2026-03-31,Bosnia and Herzegovina,Italy,FIFA World Cup qualification,False,-179.5819568650104,D
 2026-03-31,Sweden,Poland,FIFA World Cup qualification,False,43.30774940010588,H
 2026-03-31,Kosovo,Turkey,FIFA World Cup qualification,False,-52.7633887178672,A
-2026-03-31,Czech Republic,Denmark,FIFA World Cup qualification,False,-42.02970770572142,D
+2026-03-31,Cameroon,China,FIFA Series,True,148.4817474992576,H
 2026-03-31,Australia,Curaçao,FIFA Series,False,392.20744023377006,H
 2026-03-31,Kazakhstan,Comoros,FIFA Series,False,112.89346332817058,H
 2026-03-31,United States,Portugal,Friendly,False,-79.11795945319841,A
 2026-03-31,Norway,Switzerland,Friendly,False,100.27277379512316,D
-2026-03-31,Cameroon,China,FIFA Series,True,148.4817474992576,H
+2026-03-31,Czech Republic,Denmark,FIFA World Cup qualification,False,-42.02970770572142,D
 2026-03-31,Netherlands,Ecuador,Friendly,False,110.42888103480095,D
 2026-03-31,Niger,Togo,"Morocco, Capital of African Football",True,64.45711447822009,A
 2026-03-31,Algeria,Uruguay,Friendly,True,-122.34854149938178,D
 2026-03-31,Argentina,Zambia,Friendly,False,731.1860767670842,H
+2026-03-31,Austria,South Korea,Friendly,False,102.93685185174922,H
 2026-03-31,Benin,Guinea,"Morocco, Capital of African Football",True,-63.889621914307554,H
 2026-03-31,Brazil,Croatia,Friendly,True,49.869364773985126,H
-2026-03-31,Burkina Faso,Guinea-Bissau,Friendly,False,412.07336720015314,D
 2026-03-31,Canada,Tunisia,Friendly,False,254.45084502548366,D
 2026-03-31,Costa Rica,Iran,Friendly,True,-111.08511174215573,A
 2026-03-31,England,Japan,Friendly,False,220.3211510671606,A
-2026-03-31,Austria,South Korea,Friendly,False,102.93685185174922,H
+2026-03-31,Burkina Faso,Guinea-Bissau,Friendly,False,412.07336720015314,D
 2026-03-31,Haiti,Iceland,Friendly,True,46.875362248587635,D
-2026-03-31,Hungary,Greece,Friendly,False,73.34494511132402,D
-2026-03-31,Ivory Coast,Scotland,Friendly,True,-39.12312329847305,H
-2026-03-31,Jordan,Nigeria,Friendly,True,-89.40390918308594,D
-2026-03-31,Liberia,Libya,"Morocco, Capital of African Football",True,-109.80083715296496,D
-2026-03-31,Botswana,Malawi,Mukuru 4 Nations,False,13.36152882491001,H
 2026-03-31,Morocco,Paraguay,Friendly,True,52.216055440172795,H
-2026-03-31,Mexico,Belgium,Friendly,True,12.323118606050912,D
-2026-03-31,Montenegro,Slovenia,Friendly,False,-141.12473407673315,A
 2026-03-31,Equatorial Guinea,Madagascar,Friendly,True,-61.77201665045459,D
+2026-03-31,Mexico,Belgium,Friendly,True,12.323118606050912,D
+2026-03-31,Botswana,Malawi,Mukuru 4 Nations,False,13.36152882491001,H
+2026-03-31,Montenegro,Slovenia,Friendly,False,-141.12473407673315,A
+2026-03-31,Jordan,Nigeria,Friendly,True,-89.40390918308594,D
+2026-03-31,Ivory Coast,Scotland,Friendly,True,-39.12312329847305,H
+2026-03-31,Hungary,Greece,Friendly,False,73.34494511132402,D
+2026-03-31,Liberia,Libya,"Morocco, Capital of African Football",True,-109.80083715296496,D
 2026-05-16,Republic of Ireland,Grenada,Friendly,True,460.2671861008787,H
 2026-05-22,Mexico,Ghana,Friendly,False,434.9912573039678,H
 2026-05-26,Morocco,Burundi,Friendly,False,694.4264487798071,H
 2026-05-26,Nigeria,Zimbabwe,Unity Cup,True,395.371958610996,H
 2026-05-27,India,Jamaica,Unity Cup,True,-428.24282892679776,A
-2026-05-28,Republic of Ireland,Qatar,Friendly,False,279.2663033462363,H
 2026-05-28,Egypt,Russia,Friendly,False,64.6299128177393,H
-2026-05-29,Andorra,Iraq,Friendly,True,-596.3073850093733,A
-2026-05-29,Bosnia and Herzegovina,North Macedonia,Friendly,False,98.18893851930943,D
+2026-05-28,Republic of Ireland,Qatar,Friendly,False,279.2663033462363,H
 2026-05-29,Iran,Gambia,Friendly,True,341.8124303691318,H
 2026-05-29,South Africa,Nicaragua,Friendly,False,269.33378643631113,D
-2026-05-30,Zimbabwe,India,Unity Cup,True,230.2817752857677,H
-2026-05-30,Nigeria,Jamaica,Unity Cup,True,198.74274966774055,H
-2026-05-30,Scotland,Curaçao,Friendly,False,309.7980629628671,H
+2026-05-29,Andorra,Iraq,Friendly,True,-596.3073850093733,A
+2026-05-29,Bosnia and Herzegovina,North Macedonia,Friendly,False,98.18893851930943,D
 2026-05-30,Ecuador,Saudi Arabia,Friendly,True,335.148418806725,H
 2026-05-30,South Korea,Trinidad and Tobago,Friendly,True,336.1251702562936,H
 2026-05-30,Mexico,Australia,Friendly,True,52.06693437428544,H
-2026-05-31,Brazil,Panama,Friendly,False,301.54834821143163,H
-2026-05-31,Cape Verde,Serbia,Friendly,True,-159.80854628752786,H
-2026-05-31,Czech Republic,Kosovo,Friendly,False,110.68126789924554,H
-2026-05-31,Germany,Finland,Friendly,False,476.2105938919701,H
-2026-05-31,Poland,Ukraine,Friendly,False,61.468591663768166,A
-2026-05-31,Singapore,Mongolia,Friendly,False,394.8095324980378,H
-2026-05-31,Switzerland,Jordan,Friendly,False,269.83613776099696,H
+2026-05-30,Scotland,Curaçao,Friendly,False,309.7980629628671,H
+2026-05-30,Zimbabwe,India,Unity Cup,True,230.2817752857677,H
+2026-05-30,Nigeria,Jamaica,Unity Cup,True,198.74274966774055,H
 2026-05-31,United States,Senegal,Friendly,False,-8.926796861636149,H
+2026-05-31,Switzerland,Jordan,Friendly,False,269.83613776099696,H
+2026-05-31,Singapore,Mongolia,Friendly,False,394.8095324980378,H
+2026-05-31,Poland,Ukraine,Friendly,False,61.468591663768166,A
 2026-05-31,Japan,Iceland,Friendly,False,451.87310163036364,H
+2026-05-31,Czech Republic,Kosovo,Friendly,False,110.68126789924554,H
+2026-05-31,Cape Verde,Serbia,Friendly,True,-159.80854628752786,H
+2026-05-31,Brazil,Panama,Friendly,False,301.54834821143163,H
+2026-05-31,Germany,Finland,Friendly,False,476.2105938919701,H
 2026-06-01,Maldives,Pakistan,Diamond Jubilee International Football Tournament,False,120.34527197990701,A
 2026-06-01,Maldives,Afghanistan,Diamond Jubilee International Football Tournament,False,-114.30797075922442,A
-2026-06-01,Turkey,North Macedonia,Friendly,False,402.08419234492726,H
 2026-06-01,Slovakia,Malta,Friendly,False,499.7816216494002,H
-2026-06-01,Colombia,Costa Rica,Friendly,False,406.1142786113105,H
+2026-06-01,Norway,Sweden,Friendly,False,278.32353158451724,H
+2026-06-01,Turkey,North Macedonia,Friendly,False,402.08419234492726,H
 2026-06-01,Canada,Uzbekistan,Friendly,False,156.21253969356803,H
 2026-06-01,Bulgaria,Montenegro,Friendly,False,164.24956040442044,A
 2026-06-01,Austria,Tunisia,Friendly,False,241.83976642076982,H
-2026-06-01,Norway,Sweden,Friendly,False,278.32353158451724,H
+2026-06-01,Colombia,Costa Rica,Friendly,False,406.1142786113105,H
 2026-06-02,Croatia,Belgium,Friendly,False,136.48682798003438,A
 2026-06-02,Georgia,Romania,Friendly,False,118.51638087719925,D
 2026-06-02,Haiti,New Zealand,Friendly,True,-62.60942596677046,H
@@ -49300,19 +49300,19 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2026-06-02,Wales,Ghana,Friendly,False,236.13535135274947,D
 2026-06-03,Panama,Dominican Republic,Friendly,False,485.3691453730935,H
 2026-06-03,Philippines,Guam,Friendly,False,424.56894126515544,H
-2026-06-03,Poland,Nigeria,Friendly,False,-11.047491852354597,D
 2026-06-03,Netherlands,Algeria,Friendly,False,265.76046397122286,A
-2026-06-03,Luxembourg,Italy,Friendly,False,-354.50637276518046,A
+2026-06-03,Poland,Nigeria,Friendly,False,-11.047491852354597,D
 2026-06-03,South Korea,El Salvador,Friendly,True,387.07036743609547,H
-2026-06-03,Gibraltar,British Virgin Islands,Friendly,False,175.0057654417849,H
-2026-06-03,DR Congo,Denmark,Friendly,True,-144.64864632305762,D
 2026-06-03,Albania,Israel,Friendly,False,128.5379206577809,A
+2026-06-03,DR Congo,Denmark,Friendly,True,-144.64864632305762,D
+2026-06-03,Luxembourg,Italy,Friendly,False,-354.50637276518046,A
+2026-06-03,Gibraltar,British Virgin Islands,Friendly,False,175.0057654417849,H
 2026-06-04,Sweden,Greece,Friendly,False,71.76547135276564,D
-2026-06-04,Spain,Iraq,Friendly,False,576.4981574822775,D
+2026-06-04,Slovenia,Cyprus,Friendly,False,493.29036889977215,D
 2026-06-04,Northern Ireland,Guinea,Friendly,True,69.1165845029941,H
 2026-06-04,Mexico,Serbia,Friendly,False,271.5239792001362,H
 2026-06-04,Lesotho,Kenya,Friendly,True,-55.60459663223901,D
-2026-06-04,Slovenia,Cyprus,Friendly,False,493.29036889977215,D
+2026-06-04,Spain,Iraq,Friendly,False,576.4981574822775,D
 2026-06-04,Guatemala,Czech Republic,Friendly,True,-126.91262504217548,A
 2026-06-04,France,Ivory Coast,Friendly,False,441.4531249164784,A
 2026-06-04,Cambodia,Bhutan,Friendly,False,280.81089772542975,H
@@ -49328,6 +49328,7 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2026-06-05,Slovakia,Montenegro,Friendly,False,327.6426844726509,D
 2026-06-05,Singapore,China,Friendly,False,-148.85406479377934,A
 2026-06-05,Paraguay,Nicaragua,Friendly,False,517.3654845997601,H
+2026-06-05,Moldova,Bulgaria,Friendly,False,-139.38407302057203,D
 2026-06-05,Indonesia,Oman,Friendly,False,-17.02184512919075,H
 2026-06-05,Hungary,Finland,Friendly,False,246.9240736475067,H
 2026-06-05,Hong Kong,Mongolia,Friendly,False,431.51315516238367,H
@@ -49337,47 +49338,48 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2026-06-05,Belarus,Syria,Friendly,False,58.67224036382777,H
 2026-06-05,Azerbaijan,Malta,Friendly,True,82.15443922167287,A
 2026-06-05,Angola,Mauritania,Friendly,True,149.87974495935555,D
-2026-06-05,Moldova,Bulgaria,Friendly,False,-139.38407302057203,D
-2026-06-06,Kyrgyzstan,Palestine,Friendly,False,-39.19927914601021,D
-2026-06-06,Panama,Bosnia and Herzegovina,Friendly,True,208.03717469549088,D
 2026-06-06,Portugal,Chile,Friendly,False,328.9525917219728,H
 2026-06-06,Qatar,El Salvador,Friendly,True,78.82068289559334,D
 2026-06-06,Romania,Wales,Friendly,False,38.401092124420074,H
 2026-06-06,United States,Germany,Friendly,False,-66.51653473276701,A
+2026-06-06,British Virgin Islands,Bonaire,Friendly,True,-133.1233707200838,H
 2026-06-06,Lithuania,Latvia,Baltic Cup,False,108.86667881183598,D
-2026-06-06,Gibraltar,Cayman Islands,Friendly,False,152.2614384810338,H
 2026-06-06,Venezuela,Turkey,Friendly,True,-142.3644523405071,A
 2026-06-06,Myanmar,Guam,Tri-Nations Cup,True,125.01356309572407,H
+2026-06-06,Panama,Bosnia and Herzegovina,Friendly,True,208.03717469549088,D
 2026-06-06,Estonia,Faroe Islands,Baltic Cup,False,74.0662149493985,H
-2026-06-06,British Virgin Islands,Bonaire,Friendly,True,-133.1233707200838,H
-2026-06-06,Gibraltar,Cayman Islands,Friendly,False,172.83487429446927,H
+2026-06-06,Gibraltar,Cayman Islands,Friendly,False,152.2614384810338,H
 2026-06-06,Jamaica,South Africa,Friendly,True,9.612854116108565,A
-2026-06-06,Albania,Luxembourg,Friendly,False,341.3012559287545,A
+2026-06-06,Kyrgyzstan,Palestine,Friendly,False,-39.19927914601021,D
+2026-06-06,Gibraltar,Cayman Islands,Friendly,False,172.83487429446927,H
 2026-06-06,Vanuatu,Fiji,Friendly,False,103.95236486234057,H
-2026-06-06,Argentina,Honduras,Friendly,True,485.48459649864026,H
+2026-06-06,Albania,Luxembourg,Friendly,False,341.3012559287545,A
 2026-06-06,Armenia,Kazakhstan,Friendly,False,36.088021741310286,D
 2026-06-06,Australia,Switzerland,Friendly,True,-63.60482488575485,D
 2026-06-06,Belgium,Tunisia,Friendly,False,321.14390614298736,H
-2026-06-06,Ethiopia,Malawi,Friendly,False,40.161034690329416,H
-2026-06-06,Bolivia,Scotland,Friendly,True,-78.78909610779465,A
+2026-06-06,Bermuda,Cape Verde,Friendly,True,-376.5293260052965,H
+2026-06-06,Argentina,Honduras,Friendly,True,485.48459649864026,H
 2026-06-06,Brazil,Egypt,Friendly,True,247.71855258452933,H
 2026-06-06,Curaçao,Aruba,Friendly,False,469.6349353835967,H
 2026-06-06,England,New Zealand,Friendly,True,356.2664385928142,H
 2026-06-06,Sierra Leone,Liberia,Friendly,False,148.3200673741942,H
-2026-06-06,Bermuda,Cape Verde,Friendly,True,-376.5293260052965,H
+2026-06-06,Bolivia,Scotland,Friendly,True,-78.78909610779465,A
+2026-06-06,Ethiopia,Malawi,Friendly,False,40.161034690329416,H
 2026-06-07,Denmark,Ukraine,Friendly,False,160.29017482662925,H
-2026-06-07,Morocco,Norway,Friendly,True,30.331408351646587,D
-2026-06-07,Liechtenstein,Cyprus,Friendly,False,-257.74209473644737,A
-2026-06-07,Kosovo,Andorra,Friendly,False,709.8983566714694,H
+2026-06-07,Afghanistan,Pakistan,Diamond Jubilee International Football Tournament,True,174.89781206347084,A
+2026-06-07,Croatia,Slovenia,Friendly,False,319.6494522557116,H
 2026-06-07,Ecuador,Guatemala,Friendly,True,376.4014865311733,H
 2026-06-07,Greece,Italy,Friendly,False,-11.859550791180709,A
-2026-06-07,Croatia,Slovenia,Friendly,False,319.6494522557116,H
-2026-06-07,Afghanistan,Pakistan,Diamond Jubilee International Football Tournament,True,174.89781206347084,A
 2026-06-07,Jordan,Colombia,Friendly,True,-276.2840942481639,A
+2026-06-07,Kosovo,Andorra,Friendly,False,709.8983566714694,H
+2026-06-07,Liechtenstein,Cyprus,Friendly,False,-257.74209473644737,A
+2026-06-07,Morocco,Norway,Friendly,True,30.331408351646587,D
 2026-06-08,Mauritania,Niger,Friendly,True,-72.36917664477619,H
 2026-06-08,Peru,Spain,Friendly,True,-436.25009680150447,A
-2026-06-08,Netherlands,Uzbekistan,Friendly,True,180.95408419745536,H
 2026-06-08,France,Northern Ireland,Friendly,False,554.3011911429414,H
+2026-06-08,Netherlands,Uzbekistan,Friendly,True,180.95408419745536,H
+2026-06-09,Iraq,Venezuela,Friendly,True,-57.920880732930755,A
+2026-06-09,Liberia,Sierra Leone,Friendly,False,39.73447059401383,H
 2026-06-09,Togo,Benin,Friendly,False,21.23316389158299,H
 2026-06-09,Russia,Trinidad and Tobago,Friendly,False,408.02929189441716,H
 2026-06-09,Estonia,Lithuania,Baltic Cup,False,155.63569165201397,H
@@ -49387,7 +49389,6 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2026-06-09,Saudi Arabia,Senegal,Friendly,True,-234.4547162784943,D
 2026-06-09,Kyrgyzstan,Palestine,Friendly,False,-36.95231333684569,D
 2026-06-09,Indonesia,Mozambique,Friendly,False,94.09361705849415,H
-2026-06-09,Liberia,Sierra Leone,Friendly,False,39.73447059401383,H
 2026-06-09,Hungary,Kazakhstan,Friendly,False,353.4888125409441,H
 2026-06-09,Equatorial Guinea,Comoros,Friendly,True,-25.52848365583327,A
 2026-06-09,DR Congo,Chile,Friendly,True,-18.949344251303955,A
@@ -49399,11 +49400,10 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2026-06-09,Argentina,Iceland,Friendly,True,548.5792108561745,H
 2026-06-09,Angola,Central African Republic,Friendly,True,211.20973283680064,H
 2026-06-09,Ethiopia,Malawi,Friendly,False,57.85942171709212,D
-2026-06-09,Iraq,Venezuela,Friendly,True,-57.920880732930755,A
 2026-06-10,Afghanistan,Pakistan,Diamond Jubilee International Football Tournament,True,108.98253081879216,A
 2026-06-10,Portugal,Nigeria,Friendly,False,239.7082659347759,H
-2026-06-10,Bolivia,Algeria,Friendly,True,-148.15859807132597,A
 2026-06-10,England,Costa Rica,Friendly,True,337.29715352027506,H
+2026-06-10,Bolivia,Algeria,Friendly,True,-148.15859807132597,A
 2026-06-11,Mexico,South Africa,FIFA World Cup,False,410.1327670071207,H
 2026-06-11,South Korea,Czech Republic,FIFA World Cup,True,84.03859896560789,H
 2026-06-12,Canada,Bosnia and Herzegovina,FIFA World Cup,False,344.0355740003531,D
@@ -49414,8 +49414,8 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2026-06-13,Australia,Turkey,FIFA World Cup,True,-62.38300434257053,H
 2026-06-14,Sweden,Tunisia,FIFA World Cup,True,26.03852986186871,H
 2026-06-14,Netherlands,Japan,FIFA World Cup,True,19.65606731546245,D
-2026-06-14,Ivory Coast,Ecuador,FIFA World Cup,True,-209.35394427755614,H
 2026-06-14,Germany,Curaçao,FIFA World Cup,True,405.1821517433448,H
+2026-06-14,Ivory Coast,Ecuador,FIFA World Cup,True,-209.35394427755614,H
 2026-06-15,Belgium,Egypt,FIFA World Cup,True,159.94292643835024,D
 2026-06-15,Iran,New Zealand,FIFA World Cup,True,176.68915832232074,D
 2026-06-15,Spain,Cape Verde,FIFA World Cup,True,555.4151860260858,D
@@ -49426,8 +49426,8 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2026-06-16,Austria,Jordan,FIFA World Cup,True,119.49743907667471,H
 2026-06-17,Ghana,Panama,FIFA World Cup,True,-221.0113545631914,H
 2026-06-17,England,Croatia,FIFA World Cup,True,122.80311050419186,H
-2026-06-17,Portugal,DR Congo,FIFA World Cup,True,266.61102889110043,D
 2026-06-17,Uzbekistan,Colombia,FIFA World Cup,True,-240.91204446291954,A
+2026-06-17,Portugal,DR Congo,FIFA World Cup,True,266.61102889110043,D
 2026-06-18,Czech Republic,South Africa,FIFA World Cup,True,117.18001330341394,D
 2026-06-18,Mexico,South Korea,FIFA World Cup,False,178.66693088919328,H
 2026-06-18,Switzerland,Bosnia and Herzegovina,FIFA World Cup,True,264.0239142897201,H
@@ -49436,17 +49436,17 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2026-06-19,Brazil,Haiti,FIFA World Cup,True,381.70329069931586,H
 2026-06-19,United States,Australia,FIFA World Cup,False,21.99735214549719,H
 2026-06-19,Turkey,Paraguay,FIFA World Cup,True,44.557638275476165,A
-2026-06-20,Ecuador,Curaçao,FIFA World Cup,True,388.6075466123375,D
 2026-06-20,Tunisia,Japan,FIFA World Cup,True,-306.7466638101539,A
-2026-06-20,Germany,Ivory Coast,FIFA World Cup,True,156.1568165469116,H
 2026-06-20,Netherlands,Sweden,FIFA World Cup,True,192.88888829627535,H
+2026-06-20,Ecuador,Curaçao,FIFA World Cup,True,388.6075466123375,D
+2026-06-20,Germany,Ivory Coast,FIFA World Cup,True,156.1568165469116,H
 2026-06-21,Belgium,Iran,FIFA World Cup,True,74.30532206796647,D
 2026-06-21,New Zealand,Egypt,FIFA World Cup,True,-88.74486776550111,A
 2026-06-21,Spain,Saudi Arabia,FIFA World Cup,True,470.73956710133734,H
 2026-06-21,Uruguay,Cape Verde,FIFA World Cup,True,270.3100673813831,D
-2026-06-22,Argentina,Austria,FIFA World Cup,True,278.68293519157464,H
 2026-06-22,France,Iraq,FIFA World Cup,True,427.7228372547536,H
 2026-06-22,Norway,Senegal,FIFA World Cup,True,86.19553908157286,H
+2026-06-22,Argentina,Austria,FIFA World Cup,True,278.68293519157464,H
 2026-06-22,Jordan,Algeria,FIFA World Cup,True,-124.48069600216604,A
 2026-06-23,Panama,Croatia,FIFA World Cup,True,-134.48313856999175,A
 2026-06-23,England,Ghana,FIFA World Cup,True,444.01310917733304,D
@@ -49470,12 +49470,12 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2026-06-26,Uruguay,Spain,FIFA World Cup,True,-256.38427871606496,A
 2026-06-26,Norway,France,FIFA World Cup,True,-147.96402040000862,A
 2026-06-26,Senegal,Iraq,FIFA World Cup,True,164.64680848942385,H
-2026-06-27,Croatia,Ghana,FIFA World Cup,True,255.01595101863586,H
 2026-06-27,Panama,England,FIFA World Cup,True,-309.99359116108803,A
+2026-06-27,Croatia,Ghana,FIFA World Cup,True,255.01595101863586,H
 2026-06-27,DR Congo,Uzbekistan,FIFA World Cup,True,-0.4705541718999484,H
+2026-06-27,Colombia,Portugal,FIFA World Cup,True,49.480765680634704,D
 2026-06-27,Jordan,Argentina,FIFA World Cup,True,-493.1453260243602,A
 2026-06-27,Algeria,Austria,FIFA World Cup,True,-20.473330289949445,D
-2026-06-27,Colombia,Portugal,FIFA World Cup,True,49.480765680634704,D
 2026-06-28,South Africa,Canada,FIFA World Cup,True,-138.02636207043247,A
 2026-06-29,Brazil,Japan,FIFA World Cup,True,98.27000353332573,H
 2026-06-29,Germany,Paraguay,FIFA World Cup,True,98.42431578440619,D
@@ -49483,8 +49483,8 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2026-06-30,Ivory Coast,Norway,FIFA World Cup,True,-107.72303914268332,A
 2026-06-30,France,Sweden,FIFA World Cup,True,375.5375167787845,H
 2026-06-30,Mexico,Ecuador,FIFA World Cup,False,119.60885967930176,H
-2026-07-01,Belgium,Senegal,FIFA World Cup,True,69.18102573143096,H
 2026-07-01,United States,Bosnia and Herzegovina,FIFA World Cup,False,287.46212044694494,H
+2026-07-01,Belgium,Senegal,FIFA World Cup,True,69.18102573143096,H
 2026-07-01,England,DR Congo,FIFA World Cup,True,284.22895634939573,H
 2026-07-02,Spain,Austria,FIFA World Cup,True,293.12248283418626,H
 2026-07-02,Portugal,Croatia,FIFA World Cup,True,79.1468295861282,H
@@ -49498,5 +49498,6 @@ date,home_team,away_team,tournament,neutral,elo_diff_pre,outcome
 2026-07-05,Mexico,England,FIFA World Cup,False,27.74772727792424,A
 2026-07-06,Portugal,Spain,FIFA World Cup,True,-150.56186705471146,A
 2026-07-06,United States,Belgium,FIFA World Cup,False,-7.346207691427708,A
-2026-07-07,Argentina,Egypt,FIFA World Cup,True,361.15495166492065,H
 2026-07-07,Switzerland,Colombia,FIFA World Cup,True,-69.88443480159685,D
+2026-07-07,Argentina,Egypt,FIFA World Cup,True,361.15495166492065,H
+2026-07-09,France,Morocco,FIFA World Cup,True,147.99325518893193,H
