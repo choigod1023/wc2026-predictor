@@ -80,19 +80,19 @@
         "p": 0.0019
       },
       {
-        "team": "Australia",
-        "p": 0.0017
-      },
-      {
         "team": "Turkey",
         "p": 0.0017
       },
       {
-        "team": "Paraguay",
-        "p": 0.0012
+        "team": "Australia",
+        "p": 0.0017
       },
       {
         "team": "Austria",
+        "p": 0.0012
+      },
+      {
+        "team": "Paraguay",
         "p": 0.0012
       },
       {
@@ -178,11 +178,11 @@
         "p": 0.0022
       },
       {
-        "team": "Turkey",
+        "team": "Iran",
         "p": 0.0019
       },
       {
-        "team": "Iran",
+        "team": "Turkey",
         "p": 0.0019
       },
       {
@@ -284,11 +284,11 @@
         "p": 0.0021
       },
       {
-        "team": "Turkey",
+        "team": "Iran",
         "p": 0.0017
       },
       {
-        "team": "Iran",
+        "team": "Turkey",
         "p": 0.0017
       },
       {
