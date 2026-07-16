@@ -1,5 +1,56 @@
 [
  {
+  "date": "2026-07-16",
+  "moves": [
+   {
+    "team": "France",
+    "dir": "down",
+    "delta": -0.2786,
+    "opp": "Spain",
+    "sf": 0,
+    "sa": 2,
+    "result": "loss",
+    "upset": false
+   },
+   {
+    "team": "Spain",
+    "dir": "up",
+    "delta": 0.2392,
+    "opp": "France",
+    "sf": 2,
+    "sa": 0,
+    "result": "win",
+    "upset": false
+   },
+   {
+    "team": "Argentina",
+    "dir": "up",
+    "delta": 0.1663,
+    "opp": "England",
+    "sf": 2,
+    "sa": 1,
+    "result": "win",
+    "upset": false
+   },
+   {
+    "team": "England",
+    "dir": "down",
+    "delta": -0.0829,
+    "opp": "Argentina",
+    "sf": 1,
+    "sa": 2,
+    "result": "loss",
+    "upset": false
+   },
+   {
+    "team": "Norway",
+    "dir": "down",
+    "delta": -0.0258,
+    "other": true
+   }
+  ]
+ },
+ {
   "date": "2026-07-11",
   "moves": [
    {
