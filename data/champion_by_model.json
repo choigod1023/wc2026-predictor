@@ -88,15 +88,15 @@
         "p": 0.0013
       },
       {
-        "team": "Paraguay",
-        "p": 0.0011
-      },
-      {
         "team": "Senegal",
         "p": 0.0011
       },
       {
-        "team": "Egypt",
+        "team": "Paraguay",
+        "p": 0.0011
+      },
+      {
+        "team": "Austria",
         "p": 0.0009
       }
     ]
@@ -130,11 +130,11 @@
         "p": 0.0271
       },
       {
-        "team": "Netherlands",
+        "team": "Belgium",
         "p": 0.0196
       },
       {
-        "team": "Belgium",
+        "team": "Netherlands",
         "p": 0.0196
       },
       {
@@ -194,11 +194,11 @@
         "p": 0.0011
       },
       {
-        "team": "Paraguay",
+        "team": "Austria",
         "p": 0.0009
       },
       {
-        "team": "Austria",
+        "team": "Paraguay",
         "p": 0.0009
       }
     ]
