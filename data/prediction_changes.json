@@ -1,5 +1,22 @@
 [
  {
+  "date": "2026-07-20",
+  "moves": [
+   {
+    "team": "Argentina",
+    "dir": "down",
+    "delta": -0.4001,
+    "other": true
+   },
+   {
+    "team": "Spain",
+    "dir": "up",
+    "delta": 0.3938,
+    "other": true
+   }
+  ]
+ },
+ {
   "date": "2026-07-16",
   "moves": [
    {
