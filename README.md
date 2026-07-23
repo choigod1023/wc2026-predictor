@@ -3,6 +3,21 @@
 2026 월드컵 조별리그 72경기를 검증장으로 "내 모델 vs 베팅 시장" 정확도 대결을 하는 프로젝트.
 실제 베팅용이 아님 (한국에서 해외 베팅은 불법). 상세 배경: docs/, 작업 원칙: CLAUDE.md
 
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-150458?logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)
+
+## ✨ 주요 기능
+- **Elo 레이팅 엔진** — martj42/international_results 의 A매치 결과로 국가별 Elo를 산출(홈 어드밴티지 반영).
+- **확률 변환 + walk-forward 검증** — Elo 차이를 다항 로지스틱으로 승/무/패 확률화하고, 미래 정보 누수 없이 walk-forward Brier로 검증.
+- **멀티모델 리더보드** — Elo-로지스틱(기준)·+|diff|·Davidson·기준선을 동일 규약으로 등록해 Brier로 공정 비교(`src/models.py`, `src/compare_models.py`).
+- **72경기 예측 + 몬테카를로** — 조별리그 예측과 토너먼트 시뮬레이션으로 단계별 진출·우승 확률 산출.
+- **스코어 모델** — 포아송·Dixon-Coles 기반 스코어 예측 → 언더/오버·핸디캡 근거 제시.
+- **모델 vs 시장 채점** — 개막 전 고정본 예측과 마감 배당(마진 제거 정규화)을 같은 경기에 대해 Brier로 비교(`src/evaluate.py`).
+- **자동 갱신 파이프라인** — GitHub Actions로 6시간마다 결과·Elo·예측·마감배당을 갱신·커밋.
+
 ## 빠른 시작
     pip install -r requirements.txt
     python run_pipeline.py --update   # 최신 결과 반영 후 전체 재계산
