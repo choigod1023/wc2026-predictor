@@ -127,7 +127,7 @@ def split_wc(df):
     '날짜순 앞 72경기 = 조별리그'로 간주(데이터 의존 낮고 견고). 녹아웃 경기가
     추가돼도 recover_groups(조 안 경기만)·조별 산출이 깨지지 않게 한다."""
     wc = df[(df['date'] >= '2026-06-11') &
-            (df['tournament'] == 'FIFA World Cup')].sort_values('date')
+            (df['tournament'] == 'FIFA World Cup')].sort_values('date', kind='stable')
     return wc.head(72), wc.iloc[72:]
 
 
@@ -300,7 +300,7 @@ def _rank_group(teams, games, ratings):
 
 
 def simulate_scores(fixtures, groups, ratings, params, n_sim=20000, seed=42,
-                    played=None, ko_played=None):
+                    played=None, ko_played=None, ko_pens=None):
     """
     fixtures : [(home, away, neutral), ...] 조별리그 72경기 (일정·중립여부)
     groups   : list[list[str]]
@@ -311,12 +311,15 @@ def simulate_scores(fixtures, groups, ratings, params, n_sim=20000, seed=42,
     ko_played: {(home, away): (home_score, away_score)} 이미 끝난 녹아웃 경기.
                해당 대진의 진출팀을 '고정'하고 남은 녹아웃만 시뮬 → 토너먼트가
                진행될수록 우승/단계 확률이 실제 결과를 반영해 변동.
+    ko_pens  : {(home, away): winner} 승부차기 승자(shootouts.csv). 무승부로 끝난
+               녹아웃 경기의 진출팀을 확정한다. 없으면 등장횟수 휴리스틱으로 폴백.
     스코어라인을 추첨해 2026 룰로 조 순위·녹아웃을 진행. 반환 형식은 simulate 와 동일.
     """
     rng = np.random.default_rng(seed)
     lam = make_lambda(params)
     played = played or {}
     ko_played = ko_played or {}
+    ko_pens = ko_pens or {}
 
     def ko(a, b):
         """녹아웃 한 경기: 스코어 추첨 → 연장 → 승부차기. 승자 반환."""
@@ -333,8 +336,11 @@ def simulate_scores(fixtures, groups, ratings, params, n_sim=20000, seed=42,
         return a if rng.random() < p else b
 
     # ── 실제 녹아웃 결과 → 진출팀(advancer) 사전계산 ──────────────
-    # 점수가 갈리면 그 팀, 무승부(승부차기)면 '다음 라운드에 또 등장하는 팀'으로 추론.
-    # (최신 라운드 무승부 등 추론 불가 시 None → 그 경기만 시뮬)
+    # 점수가 갈리면 그 팀, 무승부면 승부차기 승자(ko_pens = shootouts.csv)로 확정.
+    # 승부차기 기록이 아직 없을 때만 '다음 라운드에 또 등장하는 팀' 휴리스틱으로 폴백.
+    #   ※ 휴리스틱 단독은 양 팀 모두 앞선 라운드를 치른 경우(둘 다 등장 2회 이상)
+    #     판별에 실패해 그 대진이 계속 시뮬레이션된다 → 대회가 끝나도 우승 확률이
+    #     100%로 굳지 않는 원인이었다. ko_pens 가 이 구멍을 막는다.
     _appear = defaultdict(int)
     for (h, a) in ko_played:
         _appear[h] += 1
@@ -346,8 +352,10 @@ def simulate_scores(fixtures, groups, ratings, params, n_sim=20000, seed=42,
         elif as_ > hs:
             adv = a
         else:
-            ah, aa = _appear[h] > 1, _appear[a] > 1
-            adv = h if (ah and not aa) else a if (aa and not ah) else None
+            adv = ko_pens.get((h, a))
+            if adv is None:
+                ah, aa = _appear[h] > 1, _appear[a] > 1
+                adv = h if (ah and not aa) else a if (aa and not ah) else None
         ko_adv[frozenset((h, a))] = adv
 
     def play(A, B):

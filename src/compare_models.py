@@ -78,7 +78,7 @@ groups = recover_groups(wc)
 
 # 전체기간 재학습용
 Xfull, yfull = comp['elo_diff_pre'].values, comp['outcome'].values
-wc_sorted = list(wc.sort_values('date').itertuples())
+wc_sorted = list(wc.sort_values('date', kind='stable').itertuples())
 diffs = np.array([ratings[r.home_team] + (0 if r.neutral else HOME_ADV)
                   - ratings[r.away_team] for r in wc_sorted])
 

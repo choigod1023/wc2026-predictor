@@ -4,7 +4,7 @@
     "short": "elo_logit_abs",
     "brier": 0.5045,
     "logloss": 0.8581,
-    "accuracy": 0.6035,
+    "accuracy": 0.604,
     "best": true
   },
   {

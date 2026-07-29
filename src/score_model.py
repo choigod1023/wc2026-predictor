@@ -272,7 +272,7 @@ def rationale(home, away, d, lh, la, grid, ou, top, hcap):
 
 
 rows = []
-for r in wc.sort_values('date').itertuples():
+for r in wc.sort_values('date', kind='stable').itertuples():
     d = ratings[r.home_team] + (0 if r.neutral else HOME_ADV) - ratings[r.away_team]
     lh, la = PRIMARY.lams(np.array([d]))
     lh, la = float(lh[0]), float(la[0])
