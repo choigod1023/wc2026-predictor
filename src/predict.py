@@ -46,7 +46,7 @@ groups = recover_groups(wc)
 
 # ── 2. 72경기 확률 예측 ────────────────────────────────────────
 rows = []
-for r in wc.sort_values('date').itertuples():
+for r in wc.sort_values('date', kind='stable').itertuples():
     h = 0 if r.neutral else HOME_ADV
     diff = ratings[r.home_team] + h - ratings[r.away_team]
     p = model.predict_proba([[diff]])[0]
@@ -67,7 +67,7 @@ else:
 # 라이브 탭이 녹아웃 경기 예측도 보여줄 수 있게 한다. (고정본과 비교해 '예측 변화'용)
 live_all = pd.concat([wc, ko_df]) if len(ko_df) else wc
 live_rows = []
-for r in live_all.sort_values('date').itertuples():
+for r in live_all.sort_values('date', kind='stable').itertuples():
     h = 0 if r.neutral else HOME_ADV
     diff = ratings[r.home_team] + h - ratings[r.away_team]
     p = model.predict_proba([[diff]])[0]
@@ -81,14 +81,21 @@ json.dump(live_rows, open('data/live_predictions.json', 'w'), ensure_ascii=False
 # 이미 끝난 조별 경기는 실제 스코어로, 끝난 녹아웃 경기는 진출팀으로 고정 →
 # 대회/토너먼트 진행에 따라 우승·단계 확률이 실제 결과를 반영해 변동.
 fixtures = [(r.home_team, r.away_team, bool(r.neutral))
-            for r in wc.sort_values('date').itertuples()]
+            for r in wc.sort_values('date', kind='stable').itertuples()]
 played = {(r.home_team, r.away_team): (int(r.home_score), int(r.away_score))
           for r in wc.itertuples() if pd.notna(r.home_score)}
 ko_played = {(r.home_team, r.away_team): (int(r.home_score), int(r.away_score))
              for r in ko_df.itertuples() if pd.notna(r.home_score)}
+# 승부차기 승자 — 무승부로 끝난 녹아웃의 진출팀을 확정(없으면 시뮬이 그 대진을 계속 굴린다)
+ko_pens = {}
+if _os.path.exists('data/shootouts.csv'):
+    _sh = pd.read_csv('data/shootouts.csv')
+    _sh = _sh[_sh['date'] >= '2026-06-11']
+    ko_pens = {(r.home_team, r.away_team): r.winner for r in _sh.itertuples()}
 out = simulate_scores(fixtures, groups, ratings, score_params, n_sim=N_SIM,
-                      played=played, ko_played=ko_played)
-print(f'조별 {len(played)}경기 + 녹아웃 {len(ko_played)}경기 결과 고정, 남은 경기만 시뮬')
+                      played=played, ko_played=ko_played, ko_pens=ko_pens)
+print(f'조별 {len(played)}경기 + 녹아웃 {len(ko_played)}경기 결과 고정'
+      f'(승부차기 {len(ko_pens)}건 반영), 남은 경기만 시뮬')
 
 res = pd.DataFrame({'team': list(out['champion'].keys()),
                     'P_champion': [out['champion'][t] for t in out['champion']],

@@ -100,7 +100,7 @@ def run_elo(df: pd.DataFrame):
 if __name__ == '__main__':
     df = pd.read_csv('data/results.csv')
     played = df[df['home_score'].notna()].copy()
-    played = played.sort_values('date')
+    played = played.sort_values('date', kind='stable')
     ratings, hist = run_elo(played)
     hist.to_csv('data/elo_history.csv', index=False)
     pd.Series(ratings).sort_values(ascending=False).to_csv('data/elo_final.csv',

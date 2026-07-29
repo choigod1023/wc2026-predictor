@@ -12,14 +12,17 @@ import urllib.request
 ROOT = os.path.dirname(os.path.abspath(__file__))
 os.chdir(ROOT)
 DATA_URL = 'https://raw.githubusercontent.com/martj42/international_results/master/results.csv'
+# 승부차기 결과(무승부로 끝난 녹아웃의 진출팀 확정용). 같은 레포의 별도 파일.
+SHOOTOUTS_URL = 'https://raw.githubusercontent.com/martj42/international_results/master/shootouts.csv'
 
 scripts = ['src/elo.py', 'src/prob_model.py', 'src/score_model.py',
-           'src/predict.py', 'src/compare_models.py']
+           'src/predict.py', 'src/compare_models.py', 'src/retrodict.py']
 n = len(scripts) + 1
 
 if '--update' in sys.argv:
     print(f'[1/{n}] 데이터 갱신:', DATA_URL)
     urllib.request.urlretrieve(DATA_URL, 'data/results.csv')
+    urllib.request.urlretrieve(SHOOTOUTS_URL, 'data/shootouts.csv')
 else:
     print(f'[1/{n}] 데이터 갱신 생략 (--update 로 활성화)')
 
@@ -36,4 +39,5 @@ if '--update' in sys.argv:
 
 print('완료. 산출물: group_stage_predictions.csv, championship_probs.csv, '
       'model_leaderboard.json, champion_by_model.json, stage_probs.json, '
-      'score_predictions.json, score_leaderboard.json, closing_odds.csv')
+      'score_predictions.json, score_leaderboard.json, closing_odds.csv, '
+      'retrodiction.json')
