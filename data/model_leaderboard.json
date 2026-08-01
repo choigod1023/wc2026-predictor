@@ -12,7 +12,7 @@
     "short": "elo_logit",
     "brier": 0.5047,
     "logloss": 0.8586,
-    "accuracy": 0.6035
+    "accuracy": 0.604
   },
   {
     "name": "Davidson 무승부모델",
