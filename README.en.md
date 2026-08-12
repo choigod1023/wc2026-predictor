@@ -68,9 +68,9 @@ A public dashboard for the predictions: **[wc2026-web](https://github.com/choigo
 | Item | Detail |
 |---|---|
 | **Contribution share** | **100%** (solo development) |
-| **Commits** | 21 / 21 (mine / all human commits) |
+| **Commits** | 24 / 24 (mine / all human commits) |
 | **Contributors** | 1 |
 | **AI coding tool** | Claude Code |
-| **Automated commits** | 154 (GitHub Actions collection/refresh that I configured — excluded from the count) |
+| **Automated commits** | 231 (GitHub Actions collection/refresh that I configured — excluded from the count) |
 
-<sub>Contribution share is counted by commit author email; bot and automation commits are excluded.</sub>
+<sub>Counting basis: commits reachable from **every branch** on origin (merge commits and empty commits excluded), counted by commit author email with one person’s multiple addresses merged; bot and automation commits are excluded.</sub>
