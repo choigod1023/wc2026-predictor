@@ -56,11 +56,11 @@
         "p": 0.0046
       },
       {
-        "team": "Japan",
+        "team": "Mexico",
         "p": 0.0044
       },
       {
-        "team": "Mexico",
+        "team": "Japan",
         "p": 0.0044
       },
       {
@@ -72,11 +72,11 @@
         "p": 0.0022
       },
       {
-        "team": "Australia",
+        "team": "Croatia",
         "p": 0.0019
       },
       {
-        "team": "Croatia",
+        "team": "Australia",
         "p": 0.0019
       },
       {
@@ -96,7 +96,7 @@
         "p": 0.0008
       },
       {
-        "team": "Canada",
+        "team": "Ivory Coast",
         "p": 0.0005
       }
     ]
