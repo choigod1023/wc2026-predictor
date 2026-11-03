@@ -17,8 +17,18 @@
 - **멀티모델 리더보드** — Elo-로지스틱(기준)·+|diff|·Davidson·기준선을 동일 규약으로 등록해 Brier로 공정 비교(`src/models.py`, `src/compare_models.py`).
 - **72경기 예측 + 몬테카를로** — 조별리그 예측과 토너먼트 시뮬레이션으로 단계별 진출·우승 확률 산출.
 - **스코어 모델** — 포아송·Dixon-Coles 기반 스코어 예측 → 언더/오버·핸디캡 근거 제시.
-- **모델 vs 시장 채점** — 개막 전 고정본 예측과 마감 배당(마진 제거 정규화)을 같은 경기에 대해 Brier로 비교(`src/evaluate.py`).
-- **자동 갱신 파이프라인** — GitHub Actions로 6시간마다 결과·Elo·예측·마감배당을 갱신·커밋.
+- **모델 vs 시장 채점** — 고정된 예측과 저장 배당(마진 제거 정규화)을 같은 경기에 대해 Brier로 비교(`src/evaluate.py`).
+- **자동 갱신 파이프라인** — GitHub Actions로 6시간마다 결과·Elo·예측·저장 배당을 갱신·커밋.
+
+## 현재 채점 상태 (2026-11-03 확인)
+
+저장소 스냅샷 `9cd48f9`에서 `python src/evaluate.py`를 실행하면 예측·결과·배당이
+모두 일치하는 **72경기**의 Brier 점수는 모델 **0.5336**, 저장된 배당에서 환산한 시장
+**0.4863**이다(낮을수록 좋음). 같은 경기만 비교했지만, 이 결과는 **탐색적 비교**다.
+
+`closing_odds.csv`에는 각 배당의 관측 시각이 없고 수집기는 킥오프 전 수집을
+검증하지 않는다. 따라서 이 값들을 실제 마감 배당으로 확인할 수 없으며, 경기별 예측
+선행 시점도 별도 검증해야 한다. 수치는 고정된 데이터 스냅샷에 대한 것이며 다음 명령으로 다시 계산할 수 있다.
 
 ## 빠른 시작
     pip install -r requirements.txt
@@ -35,14 +45,14 @@
     src/models.py              확률 모델 레지스트리 (Elo-로지스틱·+|diff|·Davidson·기준선)
     src/compare_models.py      멀티모델 walk-forward Brier 리더보드 + 모델별 우승 시뮬
     src/score_model.py         스코어 예측(포아송·Dixon-Coles) → 언오버·핸디캡 + 근거
-    src/capture_odds.py        named API 마감배당 → closing_odds.csv 자동 적재(멱등)
+    src/capture_odds.py        named API 배당 → closing_odds.csv 자동 적재(멱등)
     src/export_web.py          파이프라인 산출물 → 웹(wc2026-web/data) JSON export
     src/evaluate.py            대회 후 모델 vs 시장 Brier 판정
 
 ## 자동 갱신 (서버에서 주기 실행)
 모델은 요청마다가 아니라 **스케줄로** 돈다(입력=경기결과는 경기 끝날 때만 바뀜, GPU 불필요).
 - 이 레포 `.github/workflows/refresh-data.yml`: 6시간마다 `run_pipeline.py --update`
-  (결과·Elo·예측 갱신 + 마감배당 누적) → 변경분 자동 커밋.
+  (결과·Elo·예측 갱신 + 배당 누적) → 변경분 자동 커밋.
 - 웹 레포 `refresh-predictions.yml`: 6시간마다 이 레포를 clone해 파이프라인을 돌리고
   `export_web.py` 로 예측 JSON을 웹에 커밋 → Vercel 자동 재배포.
 - 채점용 고정본 `group_stage_predictions.csv` 는 가드로 사후 수정 차단(재생성은 `FORCE_PREDICTIONS=1`).

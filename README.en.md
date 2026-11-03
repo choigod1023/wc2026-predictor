@@ -17,8 +17,19 @@ Not intended for actual betting (offshore betting is illegal from Korea). Backgr
 - **Multi-model leaderboard** — registers Elo-logistic (baseline), +|diff|, Davidson, and naive baselines under one interface for a fair Brier comparison (`src/models.py`, `src/compare_models.py`).
 - **72-match predictions + Monte Carlo** — group-stage predictions plus tournament simulation yield per-round advancement and championship probabilities.
 - **Scoreline model** — Poisson / Dixon-Coles score prediction, backing under/over and handicap calls with explicit reasoning.
-- **Model vs. market scoring** — compares the frozen pre-tournament predictions against closing odds (de-vigged and normalized) on the same matches via Brier (`src/evaluate.py`).
-- **Automated refresh pipeline** — GitHub Actions updates and commits results, Elo, predictions, and closing odds every 6 hours.
+- **Model vs. market scoring** — compares the frozen predictions against stored odds (de-vigged and normalized) on the same matches via Brier (`src/evaluate.py`).
+- **Automated refresh pipeline** — GitHub Actions updates and commits results, Elo, predictions, and stored odds every 6 hours.
+
+## Evaluation status (checked 2026-11-03)
+
+On repository snapshot `9cd48f9`, `python src/evaluate.py` matches predictions, results and
+stored odds for **72 matches**. The model Brier score is **0.5336**, versus **0.4863**
+for probabilities derived from the stored odds (lower is better). This is an **exploratory comparison**.
+
+`closing_odds.csv` has no observation timestamp per row, and the collector does not verify
+that a price was captured before kickoff. The prices cannot therefore be confirmed as closing
+odds, and prediction timing for each match also needs separate verification. These values
+refer to the specified snapshot; rerun the command below to recalculate.
 
 ## Quick start
     pip install -r requirements.txt
@@ -35,14 +46,14 @@ Not intended for actual betting (offshore betting is illegal from Korea). Backgr
     src/models.py              probability-model registry (Elo-logistic, +|diff|, Davidson, baselines)
     src/compare_models.py      multi-model walk-forward Brier leaderboard + per-model championship sim
     src/score_model.py         scoreline prediction (Poisson, Dixon-Coles) → under/over, handicap + reasoning
-    src/capture_odds.py        closing odds from the named API → idempotent load into closing_odds.csv
+    src/capture_odds.py        odds from the named API → idempotent load into closing_odds.csv
     src/export_web.py          pipeline outputs → JSON export for the web app (wc2026-web/data)
     src/evaluate.py            post-tournament model vs. market Brier verdict
 
 ## Automated refresh (scheduled on a server)
 The model runs **on a schedule**, not per request (its input — match results — only changes when a match ends, and no GPU is needed).
 - This repo's `.github/workflows/refresh-data.yml`: runs `run_pipeline.py --update` every 6 hours
-  (refresh results, Elo, predictions + accumulate closing odds) and auto-commits the diff.
+  (refresh results, Elo, predictions + accumulate odds) and auto-commits the diff.
 - The web repo's `refresh-predictions.yml`: every 6 hours it clones this repo, runs the pipeline, and uses
   `export_web.py` to commit prediction JSON to the web app → Vercel redeploys automatically.
 - The frozen scoring snapshot `group_stage_predictions.csv` is guarded against after-the-fact edits (regenerate with `FORCE_PREDICTIONS=1`).
