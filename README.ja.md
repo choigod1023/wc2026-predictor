@@ -17,8 +17,18 @@
 - **マルチモデル・リーダーボード** — Elo-ロジスティック（基準）・+|diff|・Davidson・ベースラインを同一の規約で登録し、Brier で公平に比較（`src/models.py`, `src/compare_models.py`）。
 - **72 試合の予測 + モンテカルロ** — グループステージ予測とトーナメントのシミュレーションで、ラウンド別の進出確率と優勝確率を算出。
 - **スコアモデル** — ポアソン・Dixon-Coles ベースのスコア予測 → アンダー/オーバー・ハンディキャップの根拠を提示。
-- **モデル vs 市場の採点** — 開幕前に固定した予測と締切オッズ（マージン除去で正規化）を同じ試合について Brier で比較（`src/evaluate.py`）。
-- **自動更新パイプライン** — GitHub Actions により 6 時間ごとに結果・Elo・予測・締切オッズを更新・コミット。
+- **モデル vs 市場の採点** — 固定した予測と保存オッズ（マージン除去で正規化）を同じ試合について Brier で比較（`src/evaluate.py`）。
+- **自動更新パイプライン** — GitHub Actions により 6 時間ごとに結果・Elo・予測・保存オッズを更新・コミット。
+
+## 採点状況（2026-11-03 確認）
+
+リポジトリのスナップショット `9cd48f9` で `python src/evaluate.py` を実行すると、
+予測・結果・保存オッズが一致する **72 試合**の Brier スコアは、モデル **0.5336**、
+保存オッズから換算した市場 **0.4863**（小さいほど良い）です。これは **探索的な比較**です。
+
+`closing_odds.csv` には各オッズの観測時刻がなく、収集処理もキックオフ前の取得を
+確認しません。そのため実際の締切オッズとは確認できず、各試合の予測時刻も別途検証が必要です。
+数値は上記スナップショットのもので、下記コマンドで再計算できます。
 
 ## クイックスタート
     pip install -r requirements.txt
@@ -35,14 +45,14 @@
     src/models.py              確率モデルのレジストリ（Elo-ロジスティック・+|diff|・Davidson・ベースライン）
     src/compare_models.py      マルチモデル walk-forward Brier リーダーボード + モデル別優勝シミュレーション
     src/score_model.py         スコア予測（ポアソン・Dixon-Coles）→ アンダー/オーバー・ハンディキャップ + 根拠
-    src/capture_odds.py        named API の締切オッズ → closing_odds.csv へ自動格納（冪等）
+    src/capture_odds.py        named API のオッズ → closing_odds.csv へ自動格納（冪等）
     src/export_web.py          パイプライン成果物 → Web（wc2026-web/data）へ JSON エクスポート
     src/evaluate.py            大会後のモデル vs 市場の Brier 判定
 
 ## 自動更新（サーバー上で定期実行）
 モデルはリクエストごとではなく **スケジュール** で実行されます（入力である試合結果は試合終了時にしか変わらず、GPU も不要）。
 - 本リポジトリの `.github/workflows/refresh-data.yml`: 6 時間ごとに `run_pipeline.py --update`
-  （結果・Elo・予測の更新＋締切オッズの蓄積）→ 差分を自動コミット。
+  （結果・Elo・予測の更新＋オッズの蓄積）→ 差分を自動コミット。
 - Web リポジトリの `refresh-predictions.yml`: 6 時間ごとに本リポジトリを clone してパイプラインを実行し、
   `export_web.py` で予測 JSON を Web にコミット → Vercel が自動再デプロイ。
 - 採点用の固定版 `group_stage_predictions.csv` はガードにより事後修正を防止（再生成は `FORCE_PREDICTIONS=1`）。
