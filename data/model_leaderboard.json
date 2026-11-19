@@ -17,8 +17,8 @@
   {
     "name": "Davidson 무승부모델",
     "short": "davidson",
-    "brier": 0.5059,
-    "logloss": 0.8642,
+    "brier": 0.5057,
+    "logloss": 0.8637,
     "accuracy": 0.6113
   },
   {
